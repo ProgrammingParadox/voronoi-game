@@ -1,7 +1,10 @@
 extends Sprite2D
 
 var screen_size;
+
 @export var points = 50;
+@export var color_palette: Array[Color] = [];
+
 var point_x = [];
 var point_y = [];
 var colors = [];
@@ -24,7 +27,9 @@ func _ready():
 
 		randomize()
 		
-		var c = [randf(), randf(), randf(), 1.0]
+		#var c = [randf(), randf(), randf(), 1.0]
+		
+		var c = color_palette[randi() % color_palette.size()]
 		
 		colors.append(c[0])
 		colors.append(c[1])
@@ -41,41 +46,7 @@ func _ready():
 	material.set_shader_parameter("colors", colors)
 	material.set_shader_parameter("points", points)
 	#generate_voronoi_diagram(Vector2i(screen_size.x, screen_size.y), 100)
-#
-#func generate_voronoi_diagram(img_size: Vector2i, num_cells: int):
-	#var img = Image.create(img_size.x, img_size.y, false, Image.FORMAT_RGB8)
-#
-	#var points = []
-	#var colors = []
-#
-	#for i in range(num_cells):
-		#points.append(Vector2i(int(randf() * img.get_width()), int(randf() * img.get_height())))
-#
-		#randomize()
-		#var color_possibilities = [Color.BLUE, Color.RED, Color.GREEN, Color.PURPLE, Color.YELLOW, Color.ORANGE]
-		#colors.append(color_possibilities[randi() % color_possibilities.size()])
-#
-	#for y in range(img.get_height()):
-		#for x in range(img.get_width()):
-			#var dmin = float(img.get_size().length())
-			#var j = -1
-			#for i in range(num_cells):
-				#var d = (points[i] - Vector2i(x, y)).length()
-				#if d < dmin:
-					#dmin = d
-					#j = i
-			#img.set_pixel(x, y, colors[j])
-#
-	#var generated_texture = ImageTexture.create_from_image(img)
-#
-	#self.texture = generated_texture
 
-## Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# generate_voronoi_diagram(Vector2i(screen_size.x, screen_size.y), 100)
 	var player_position = get_parent().get_node("Player").get_node("AnimatedSprite2D").position
