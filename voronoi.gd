@@ -1,5 +1,6 @@
 extends Sprite2D
 
+# screen size, duh
 var screen_size;
 
 @export var points = 50;
