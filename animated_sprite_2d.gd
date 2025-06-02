@@ -1,10 +1,10 @@
 extends AnimatedSprite2D
 
 
-@export var speed = 400 # How fast the player will move (pixels/sec).
+@export var speed = 400
 @export var acceleration: float = 1.0;
-var screen_size # Size of the game window.
 
+var screen_size 
 var velocity = Vector2.ZERO;
 
 func resize():

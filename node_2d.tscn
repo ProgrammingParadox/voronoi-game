@@ -42,7 +42,7 @@ acceleration = 0.09
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Voronoi" type="Sprite2D" parent="."]
 z_index = -1
 material = SubResource("ShaderMaterial_q6r6c")
 centered = false
