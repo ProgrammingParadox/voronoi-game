@@ -23,10 +23,8 @@ func _ready():
 		point_y.append(randf())
 
 		randomize()
-		var color_possibilities = [Color.BLUE, Color.RED, Color.GREEN, Color.PURPLE, Color.YELLOW, Color.ORANGE]
-		var c = color_possibilities[randi() % color_possibilities.size()];
 		
-		c = [randf(), randf(), randf(), 1.0]
+		var c = [randf(), randf(), randf(), 1.0]
 		
 		colors.append(c[0])
 		colors.append(c[1])

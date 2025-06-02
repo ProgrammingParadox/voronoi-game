@@ -19,25 +19,22 @@ void fragment(){
 	int j = -1;
 	for(int i = 0; i < points; i++){
 		vec2 pos = vec2(p_x[i], p_y[i]);
-		
+
 		float dist = distance(pos, UV);
-		
+
 		if(dist < dmin){
 			dmin = dist;
-			
+
 			j = i;
 		}
 	}
-	
+
 	if(dmin < 0.01){
 		COLOR = vec4(0.5, 0.5, 0.5, 1.0);
 	} else {
 		int ci = j * 4;
 		COLOR = vec4(colors[ci + 0], colors[ci + 1], colors[ci + 2], 1.0);
 	}
-	// COLOR = vec4(color[0], color[1], color[2], color[3]);
-	
-	// COLOR = vec4(float(j)/100.0, float(j)/100.0, float(j)/100.0, 1.0);
 }
 
 //void light() {
