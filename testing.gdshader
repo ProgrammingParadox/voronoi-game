@@ -10,45 +10,51 @@ uniform float colors[100 * 4];
 
 const float width = 0.001;
 
-bool in_range(float a, float b, float range) {
-	return a - range < b && a + range > b;
-}
-
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
-vec3 getColor(int i) {
+vec2 getPoint(int i){
+	return vec2(p_x[i], p_y[i]);
+}
+
+vec3 getColor(int i){
 	int color_index = i * 4;
 	return vec3(colors[color_index + 0], colors[color_index + 1], colors[color_index + 2]);
 }
 
-void fragment(){
+void findTwoClosest(vec2 pos, out int closest, out int second_closest){
 	// find two closest points... seeds?
 	float nearest_1 = 100000.0;
-	int   index_1 = -1;
+	closest = -1;
 	float nearest_2 = 100000.0;
-	int   index_2 = -1;
+	second_closest = -1;
 	for(int i = 0; i < points; i++){
-		vec2 pos = vec2(p_x[i], p_y[i]);
+		vec2 cur = vec2(p_x[i], p_y[i]);
 
-		float dist = distance(pos, UV);
+		float dist = distance(cur, pos);
 
 		if(dist < nearest_1){
 			nearest_2 = nearest_1;
 			nearest_1 = dist;
 
-			index_2 = index_1;
-			index_1 = i;
+			second_closest = closest;
+			closest = i;
 		} else if(dist < nearest_2) {
 			nearest_2 = dist;
-			index_2 = i;
+			second_closest = i;
 		}	
 	}
+}
+
+void fragment(){
+	// find two closest points... seeds?
+	int closest, second_closest;
+	findTwoClosest(UV, closest, second_closest);
 	
 	// write out their positions as vectors
-	vec2 nearest_point      = vec2(p_x[index_1], p_y[index_1]);
-	vec2 next_nearest_point = vec2(p_x[index_2], p_y[index_2]);
+	vec2 nearest_point      = getPoint(closest);
+	vec2 next_nearest_point = getPoint(second_closest);
 	
 	// mid point, slope
 	vec2 mid = (nearest_point + next_nearest_point) / 2.0;
@@ -66,8 +72,8 @@ void fragment(){
 	vec2 o = vec2(x, (x * slope) - (slope * p.x) + p.y);
 	
 	// get the colors of the two closest seeds
-	vec3 color_1 = getColor(index_1);
-	vec3 color_2 = getColor(index_2);
+	vec3 color_1 = getColor(closest);
+	vec3 color_2 = getColor(second_closest);
 	
 	if(distance(p, o) < width && color_1 == color_2){
 		COLOR = vec4(color_1*0.8, 1.0);
