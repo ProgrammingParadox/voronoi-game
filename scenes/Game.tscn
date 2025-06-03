@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=8 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
 [ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="2_r0x5m"]
-[ext_resource type="Script" uid="uid://dgmkjvv55hhvw" path="res://scripts/animated_sprite_2d.gd" id="3_3mrqo"]
-[ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://scenes/seed.tscn" id="4_joorw"]
+[ext_resource type="Script" uid="uid://btcn8r5ytt6yn" path="res://scripts/player.gd" id="3_78awf"]
 [ext_resource type="Texture2D" uid="uid://dq7lwem33alvc" path="res://circle.svg" id="5_2vekm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
@@ -41,10 +40,9 @@ points = 5
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 1
-script = ExtResource("3_3mrqo")
+script = ExtResource("3_78awf")
 speed = 800
 acceleration = 0.09
-seed_tscn = ExtResource("4_joorw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 scale = Vector2(0.245, 0.245)
