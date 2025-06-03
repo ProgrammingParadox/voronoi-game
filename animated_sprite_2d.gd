@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 @export var speed = 400
 @export var acceleration: float = 1.0;
 
@@ -28,10 +29,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("player_1_plant"):
 		var new_seed = seed_tscn.instantiate()
 		add_sibling(new_seed)
-		
 		new_seed.position = self.position
 		new_seed.get_node("Sprite2D").player_color = Color(0.0, 1.0, 0.0, 1.0);
-	#
+	
 		
 	position += velocity * speed * delta
 	
