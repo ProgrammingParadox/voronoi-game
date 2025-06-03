@@ -8,7 +8,7 @@ uniform float p_x[100];
 uniform float p_y[100];
 uniform float colors[100 * 4];
 
-uniform float width = 0.001;
+const float width = 0.001;
 
 bool in_range(float a, float b, float range) {
 	return a - range < b && a + range > b;
@@ -24,8 +24,7 @@ vec3 getColor(int i) {
 }
 
 void fragment(){
-    //COLOR = vec4(UV, player_y, player_x);
-
+	// find two closest points... seeds?
 	float nearest_1 = 100000.0;
 	int   index_1 = -1;
 	float nearest_2 = 100000.0;
@@ -47,29 +46,30 @@ void fragment(){
 		}	
 	}
 	
-	vec2 nearest_point = vec2(p_x[index_1], p_y[index_1]);
+	// write out their positions as vectors
+	vec2 nearest_point      = vec2(p_x[index_1], p_y[index_1]);
 	vec2 next_nearest_point = vec2(p_x[index_2], p_y[index_2]);
+	
+	// mid point, slope
 	vec2 mid = (nearest_point + next_nearest_point) / 2.0;
 	vec2 p = UV;
 	float slope = (nearest_point.y - next_nearest_point.y) / (nearest_point.x - next_nearest_point.x);
 	
+	// prevent slope from being 0
 	if(abs(slope) < 0.00001){
 		slope = 0.00001;
 	}
 	
+	// find the closest point to the border
 	// tears were shed over these two lines
 	float x = ((slope * ((slope*p.x) - p.y + mid.y)) + mid.x) / ((slope*slope) + 1.0);
 	vec2 o = vec2(x, (x * slope) - (slope * p.x) + p.y);
 	
-	//int ci_1 = index_1 * 4;
-	//vec3 color_1 = vec3(colors[ci_1 + 0], colors[ci_1 + 1], colors[ci_1 + 2]);
-	//int ci_2 = index_2 * 4;
-	//vec3 color_2 = vec3(colors[ci_2 + 0], colors[ci_2 + 1], colors[ci_2 + 2]);
-	
+	// get the colors of the two closest seeds
 	vec3 color_1 = getColor(index_1);
 	vec3 color_2 = getColor(index_2);
 	
-	if(distance(p, o) < 0.001 && color_1 == color_2){
+	if(distance(p, o) < width && color_1 == color_2){
 		COLOR = vec4(color_1*0.8, 1.0);
 	} else {
 		COLOR = vec4(color_1, 1.0);
