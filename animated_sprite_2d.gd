@@ -13,7 +13,7 @@ func resize():
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	get_tree().get_root().size_changed.connect(resize)
 
 func _physics_process(delta: float) -> void:

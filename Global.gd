@@ -1,5 +1,7 @@
 extends Node;
 
+var paused = false
+
 enum SCENES {
 	HOME, 
 	CHAR_SELECT,

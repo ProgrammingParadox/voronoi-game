@@ -8,12 +8,15 @@ var curr_selection := 1
 var bounce = 15 * sin(timer*2) #bounce speed and size
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	position = thing1.position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timer += delta
+	if !get_tree().paused:
+		curr_selection = 1
 	if curr_selection == 1:
 		get_node("../VBoxContainer/Resume").position.x = 10
 		get_node("../VBoxContainer/Settings").position.x = 0

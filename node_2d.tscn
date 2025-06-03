@@ -56,7 +56,3 @@ sprite_frames = SubResource("SpriteFrames_0hol4")
 shape = SubResource("CircleShape2D_0hol4")
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_kdubu")]
-offset_left = 645.0
-offset_top = 330.0
-offset_right = 645.0
-offset_bottom = 330.0
