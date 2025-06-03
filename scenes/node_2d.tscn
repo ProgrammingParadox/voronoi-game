@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://4uhfxo2n5kmm"]
 
 [ext_resource type="Script" uid="uid://ci6qha6mpa0y8" path="res://scripts/node_2d.gd" id="1_fws66"]
-[ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://testing.gdshader" id="2_hh0fu"]
+[ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="2_hh0fu"]
 [ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="3_3m5ht"]
 [ext_resource type="Script" uid="uid://dgmkjvv55hhvw" path="res://scripts/animated_sprite_2d.gd" id="4_dubn7"]
 [ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://scenes/seed.tscn" id="5_08kqv"]
