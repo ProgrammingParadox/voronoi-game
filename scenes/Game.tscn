@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=6 format=3 uid="uid://og27vauvhwyp"]
 
+[ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scenes/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
 [ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="2_r0x5m"]
-[ext_resource type="Script" uid="uid://btcn8r5ytt6yn" path="res://scripts/player.gd" id="3_78awf"]
-[ext_resource type="Texture2D" uid="uid://dq7lwem33alvc" path="res://circle.svg" id="5_2vekm"]
+[ext_resource type="PackedScene" uid="uid://bhp5xw5nom5h" path="res://player.tscn" id="4_78awf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_t88pq")
@@ -14,21 +14,8 @@ shader_parameter/p_x = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 shader_parameter/p_y = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 shader_parameter/colors = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0hol4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_2vekm")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
-radius = 15.1327
-
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_s0nni")
 
 [node name="Voronoi" type="Sprite2D" parent="."]
 z_index = -1
@@ -36,17 +23,11 @@ material = SubResource("ShaderMaterial_q6r6c")
 centered = false
 region_rect = Rect2(0, 0, 100, 100)
 script = ExtResource("2_r0x5m")
-points = 5
 
-[node name="Player" type="CharacterBody2D" parent="."]
-z_index = 1
-script = ExtResource("3_78awf")
-speed = 800
-acceleration = 0.09
+[node name="Player 1" parent="." instance=ExtResource("4_78awf")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-scale = Vector2(0.245, 0.245)
-sprite_frames = SubResource("SpriteFrames_0hol4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_0hol4")
+[node name="Player 2" parent="." instance=ExtResource("4_78awf")]
+controls_up = "player_2_up"
+controls_down = "player_2_down"
+controls_left = "player_2_left"
+controls_right = "player_2_right"

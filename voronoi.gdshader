@@ -3,7 +3,7 @@ shader_type canvas_item;
 uniform float player_x = 0.0;
 uniform float player_y = 0.0;
 
-uniform int points = 100;
+uniform int   points = 1;
 uniform float p_x[100];
 uniform float p_y[100];
 uniform float colors[100 * 4];
@@ -27,12 +27,12 @@ vec3 getColor(int i){
 }
 
 void findTwoClosest(vec2 pos, out int closest, out int second_closest){
-	float nearest_1 = 100000.0;
+	float nearest_1 = 10000000.0;
 	closest = -1;
-	float nearest_2 = 100000.0;
+	float nearest_2 = 10000000.0;
 	second_closest = -1;
 	for(int i = 0; i < points; i++){
-		vec2 cur = vec2(p_x[i], p_y[i]);
+		vec2 cur = getPoint(i);
 
 		float dist = distance(cur, pos);
 
