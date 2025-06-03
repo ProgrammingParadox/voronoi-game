@@ -78,7 +78,7 @@ void fragment(){
 	float dist = distance(p, o);
 	
 	if(dist < border_width && color_1 == color_2){
-		COLOR = vec4(mix(color_1 * 0.9, color_1, dist / border_width), 1.0);
+		COLOR = vec4(mix(color_1 * 0.6, color_1, dist / border_width), 1.0);
 	} else if(dist < aa_width){
 		vec3 borderColor = mix(color_1, color_2, 0.5);
 		
