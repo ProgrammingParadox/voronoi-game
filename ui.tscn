@@ -12,7 +12,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6e0p"]
 
-[node name="Control" type="Control"]
+[node name="PauseMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,8 +30,9 @@ theme_override_constants/margin_left = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 40
 
-[node name="Thing1" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_fyqef")
 theme_override_font_sizes/font_size = 60
@@ -39,9 +40,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_fyqef")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_27fn8")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ibotj")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
-text = "Thing 1"
+text = "Resume"
+alignment = 0
 
-[node name="Thing2" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_fyqef")
 theme_override_font_sizes/font_size = 60
@@ -49,9 +51,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_fyqef")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_27fn8")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ibotj")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
-text = "Thing 2"
+text = "Settings"
+alignment = 0
 
-[node name="Thing3" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_fyqef")
 theme_override_font_sizes/font_size = 60
@@ -59,7 +62,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_fyqef")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_27fn8")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ibotj")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
-text = "Thing 3"
+text = "Quit"
+alignment = 0
 
 [node name="Pointer" type="Label" parent="MarginContainer"]
 layout_mode = 2
@@ -68,6 +72,6 @@ theme_override_font_sizes/font_size = 60
 text = ">"
 script = ExtResource("3_nltto")
 
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Thing1" to="MarginContainer/Pointer" method="_on_thing_1_mouse_entered"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Thing2" to="MarginContainer/Pointer" method="_on_thing_2_mouse_entered"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Thing3" to="MarginContainer/Pointer" method="_on_thing_3_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Resume" to="MarginContainer/Pointer" method="_on_thing_1_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Settings" to="MarginContainer/Pointer" method="_on_thing_2_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Quit" to="MarginContainer/Pointer" method="_on_thing_3_mouse_entered"]
