@@ -8,7 +8,8 @@ uniform float p_x[100];
 uniform float p_y[100];
 uniform float colors[100 * 4];
 
-const float width = 0.001;
+const float border_width = 0.002;
+const float aa_width     = 0.0005;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -24,7 +25,6 @@ vec3 getColor(int i){
 }
 
 void findTwoClosest(vec2 pos, out int closest, out int second_closest){
-	// find two closest points... seeds?
 	float nearest_1 = 100000.0;
 	closest = -1;
 	float nearest_2 = 100000.0;
@@ -75,8 +75,14 @@ void fragment(){
 	vec3 color_1 = getColor(closest);
 	vec3 color_2 = getColor(second_closest);
 	
-	if(distance(p, o) < width && color_1 == color_2){
-		COLOR = vec4(color_1*0.8, 1.0);
+	float dist = distance(p, o);
+	
+	if(dist < border_width && color_1 == color_2){
+		COLOR = vec4(mix(color_1 * 0.9, color_1, dist / border_width), 1.0);
+	} else if(dist < aa_width){
+		vec3 borderColor = mix(color_1, color_2, 0.5);
+		
+		COLOR = vec4(mix(borderColor, color_1, dist / aa_width), 1.0);
 	} else {
 		COLOR = vec4(color_1, 1.0);
 	}
