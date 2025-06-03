@@ -1,7 +1,7 @@
 enum scenes {
 	HOME, 
 	CHAR_SELECT,
-	COUNT,
+	COUNT_DOWN,
 	SETTINGS,
 	BATTLE
 }
