@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6v30hgpnovxm"]
+
+[ext_resource type="FontFile" uid="uid://206u7jy14i4v" path="res://Fonts/futura/Futura Bold Italic font.ttf" id="1_fyqef"]
+[ext_resource type="FontFile" uid="uid://rc0iatixy06p" path="res://Fonts/futura/Futura Heavy Italic font.ttf" id="2_27fn8"]
+[ext_resource type="Script" uid="uid://c4qwuq4s3yd6n" path="res://pointer.gd" id="3_nltto"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fyqef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27fn8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ibotj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6e0p"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 190.0
+offset_right = 738.0
+offset_bottom = 417.0
+theme_override_constants/margin_left = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Thing1" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fyqef")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyqef")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_27fn8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ibotj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
+text = "Thing 1"
+
+[node name="Thing2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fyqef")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyqef")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_27fn8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ibotj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
+text = "Thing 2"
+
+[node name="Thing3" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fyqef")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fyqef")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_27fn8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ibotj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
+text = "Thing 3"
+
+[node name="Pointer" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_27fn8")
+theme_override_font_sizes/font_size = 60
+text = ">"
+script = ExtResource("3_nltto")
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Thing1" to="MarginContainer/Pointer" method="_on_thing_1_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Thing2" to="MarginContainer/Pointer" method="_on_thing_2_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Thing3" to="MarginContainer/Pointer" method="_on_thing_3_mouse_entered"]
