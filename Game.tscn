@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://og27vauvhwyp"]
 
-[ext_resource type="Texture2D" uid="uid://dq7lwem33alvc" path="res://circle.svg" id="1_0hol4"]
-[ext_resource type="Script" uid="uid://dgmkjvv55hhvw" path="res://animated_sprite_2d.gd" id="2_epypp"]
-[ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://testing.gdshader" id="3_0hol4"]
-[ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://voronoi.gd" id="3_epypp"]
-[ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://seed.tscn" id="4_q6r6c"]
+[ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://testing.gdshader" id="1_t88pq"]
+[ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://voronoi.gd" id="2_r0x5m"]
+[ext_resource type="Script" uid="uid://dgmkjvv55hhvw" path="res://animated_sprite_2d.gd" id="3_3mrqo"]
+[ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://seed.tscn" id="4_joorw"]
+[ext_resource type="Texture2D" uid="uid://dq7lwem33alvc" path="res://circle.svg" id="5_2vekm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
-shader = ExtResource("3_0hol4")
+shader = ExtResource("1_t88pq")
 shader_parameter/player_x = 0.0
 shader_parameter/player_y = 0.0
 shader_parameter/points = 100
@@ -19,7 +19,7 @@ shader_parameter/colors = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0hol4")
+"texture": ExtResource("5_2vekm")
 }],
 "loop": true,
 "name": &"default",
@@ -36,15 +36,15 @@ z_index = -1
 material = SubResource("ShaderMaterial_q6r6c")
 centered = false
 region_rect = Rect2(0, 0, 100, 100)
-script = ExtResource("3_epypp")
+script = ExtResource("2_r0x5m")
 points = 5
 color_palette = Array[Color]([Color(0.701961, 1, 0.988235, 1), Color(0.392157, 0.364706, 0.843137, 1), Color(0.984314, 0.384314, 0.964706, 1), Color(1, 0.258824, 0.258824, 1), Color(0.94902, 1, 0.286275, 1)])
 
 [node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("2_epypp")
+script = ExtResource("3_3mrqo")
 speed = 800
 acceleration = 0.09
-seed_tscn = ExtResource("4_q6r6c")
+seed_tscn = ExtResource("4_joorw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 scale = Vector2(0.245, 0.245)

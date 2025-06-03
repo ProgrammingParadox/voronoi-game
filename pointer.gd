@@ -40,7 +40,6 @@ func _process(delta: float) -> void:
 func _on_thing_1_mouse_entered() -> void:
 	curr_selection = 1
 
-
 func _on_thing_2_mouse_entered() -> void:
 	curr_selection = 2
 
