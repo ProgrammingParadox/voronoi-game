@@ -4,7 +4,8 @@ extends Sprite2D
 var screen_size;
 
 @export var points = 50;
-@export var color_palette: Array[Color] = [];
+
+var color_palette = Global.COLOR_PALETTE;
 
 var point_x = [];
 var point_y = [];

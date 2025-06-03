@@ -1,7 +1,0 @@
-enum scenes {
-	HOME, 
-	CHAR_SELECT,
-	COUNT,
-	SETTINGS,
-	BATTLE
-}

@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdjeq7ithvm6g"]
+[gd_scene load_steps=5 format=3 uid="uid://cdjeq7ithvm6g"]
 
-[ext_resource type="Texture2D" uid="uid://boqlu7srkn0o8" path="res://icon.svg" id="1_a1cqr"]
+[ext_resource type="Shader" uid="uid://c0ot0vyt7ghab" path="res://seed.gdshader" id="1_24r2x"]
+[ext_resource type="Texture2D" uid="uid://bo1wdon4iyrqm" path="res://seed.svg" id="2_7wu6j"]
+[ext_resource type="Script" uid="uid://btvn5og5hfa5n" path="res://seed.gd" id="3_7wu6j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hxkq"]
+shader = ExtResource("1_24r2x")
+shader_parameter/player_color = PackedFloat32Array(0, 0, 0, 0)
 
 [node name="Node2D" type="Node2D"]
-z_index = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_a1cqr")
+material = SubResource("ShaderMaterial_7hxkq")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_7wu6j")
+script = ExtResource("3_7wu6j")
+player_color = Color(1, 0, 0, 1)

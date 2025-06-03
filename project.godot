@@ -15,6 +15,10 @@ run/main_scene="uid://og27vauvhwyp"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [input]
 
 player_1_left={
