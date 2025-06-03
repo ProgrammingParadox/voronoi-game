@@ -1,10 +1,7 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=9 format=3 uid="uid://og27vauvhwyp"]
-=======
-[gd_scene load_steps=7 format=3 uid="uid://og27vauvhwyp"]
->>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://dq7lwem33alvc" path="res://circle.svg" id="1_0hol4"]
+[ext_resource type="Script" uid="uid://dgmkjvv55hhvw" path="res://animated_sprite_2d.gd" id="2_epypp"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://testing.gdshader" id="3_0hol4"]
 [ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://voronoi.gd" id="3_epypp"]
 [ext_resource type="PackedScene" uid="uid://d2dyag2gq3tbm" path="res://seed.tscn" id="4_q6r6c"]
@@ -35,18 +32,6 @@ radius = 15.1327
 
 [node name="Node2D" type="Node2D"]
 
-<<<<<<< Updated upstream
-=======
-[node name="Player" type="Area2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-scale = Vector2(0.245, 0.245)
-sprite_frames = SubResource("SpriteFrames_0hol4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_q6r6c")
-
->>>>>>> Stashed changes
 [node name="Voronoi" type="Sprite2D" parent="."]
 z_index = -1
 material = SubResource("ShaderMaterial_q6r6c")

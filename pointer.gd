@@ -4,10 +4,7 @@ extends Label
 @onready var thing2 = $"../VBoxContainer/Thing2"
 @onready var thing3 = $"../VBoxContainer/Thing3"
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 var offset = Vector2(-90,-10)
 var timer := 0.0
 # Called when the node enters the scene tree for the first time.
@@ -19,11 +16,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	timer += 0.1
 	self.position.x += sin(timer)
-<<<<<<< Updated upstream
 	if Input.is_action_just_pressed("space"):
 		var new_seed = seed_tscn.instantiate()
-=======
->>>>>>> Stashed changes
 
 
 func _on_thing_1_mouse_entered() -> void:

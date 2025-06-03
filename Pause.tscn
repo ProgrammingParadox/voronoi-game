@@ -1,16 +1,8 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=6 format=3 uid="uid://c50ybxl8h0xv6"]
 
 [ext_resource type="FontFile" path="res://Fonts/futura/futur.ttf" id="1_sn2qd"]
 [ext_resource type="Script" uid="uid://bdyhtrwx6t8aa" path="res://pointer.gd" id="2_2jkrm"]
 [ext_resource type="FontFile" path="res://Fonts/futura/Futura Bold font.ttf" id="2_lg454"]
-=======
-[gd_scene load_steps=6 format=3 uid="uid://6kq8lxdpa1rh"]
-
-[ext_resource type="FontFile" uid="uid://ddiuhoq4ivkqw" path="res://Fonts/futura/futur.ttf" id="1_sn2qd"]
-[ext_resource type="Script" uid="uid://h2k78f6oh1uf" path="res://pointer.gd" id="2_2jkrm"]
-[ext_resource type="FontFile" uid="uid://bhrs8lfi6q8ld" path="res://Fonts/futura/Futura Bold font.ttf" id="2_lg454"]
->>>>>>> Stashed changes
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sn2qd"]
 
