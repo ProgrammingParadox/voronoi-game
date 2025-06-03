@@ -14,16 +14,13 @@ bool in_range(float a, float b, float range) {
 	return a - range < b && a + range > b;
 }
 
-// thanks to IQ
-float udSegment( in vec2 p, in vec2 a, in vec2 b ){
-    vec2 ba = b - a;
-    vec2 pa = p - a;
-    float h = clamp(dot(pa, ba)/dot(ba,ba), 0.0, 1.0 );
-    return length(pa-h*ba);
-}
-
 void vertex() {
 	// Called for every vertex the material is visible on.
+}
+
+vec3 getColor(int i) {
+	int color_index = i * 4;
+	return vec3(colors[color_index + 0], colors[color_index + 1], colors[color_index + 2]);
 }
 
 void fragment(){
@@ -64,16 +61,18 @@ void fragment(){
 	float x = ((slope * ((slope*p.x) - p.y + mid.y)) + mid.x) / ((slope*slope) + 1.0);
 	vec2 o = vec2(x, (x * slope) - (slope * p.x) + p.y);
 	
-	int ci_1 = index_1 * 4;
-	vec3 color_1 = vec3(colors[ci_1 + 0], colors[ci_1 + 1], colors[ci_1 + 2]);
-	int ci_2 = index_2 * 4;
-	vec3 color_2 = vec3(colors[ci_2 + 0], colors[ci_2 + 1], colors[ci_2 + 2]);
+	//int ci_1 = index_1 * 4;
+	//vec3 color_1 = vec3(colors[ci_1 + 0], colors[ci_1 + 1], colors[ci_1 + 2]);
+	//int ci_2 = index_2 * 4;
+	//vec3 color_2 = vec3(colors[ci_2 + 0], colors[ci_2 + 1], colors[ci_2 + 2]);
+	
+	vec3 color_1 = getColor(index_1);
+	vec3 color_2 = getColor(index_2);
 	
 	if(distance(p, o) < 0.001 && color_1 == color_2){
 		COLOR = vec4(color_1*0.8, 1.0);
 	} else {
-		int ci = index_1 * 4;
-		COLOR = vec4(colors[ci + 0], colors[ci + 1], colors[ci + 2], 1.0);
+		COLOR = vec4(color_1, 1.0);
 	}
 }
 

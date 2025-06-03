@@ -12,13 +12,14 @@ var colors = [];
 func resize():
 	screen_size = get_viewport_rect().size
 	
-	var img = Image.create(screen_size.x, screen_size.y, false, Image.FORMAT_RGB8)
+	var m = max(screen_size.x, screen_size.y);
+	var img = Image.create(m, m, false, Image.FORMAT_RGB8)
 	var generated_texture = ImageTexture.create_from_image(img)
 
 	self.texture = generated_texture
 	
 func _ready():
-	screen_size = get_viewport_rect().size
+	resize()
 	
 	get_tree().get_root().size_changed.connect(resize)
 	
@@ -36,11 +37,6 @@ func _ready():
 		colors.append(c[1])
 		colors.append(c[2])
 		colors.append(c[3])
-	
-	var img = Image.create(screen_size.x, screen_size.y, false, Image.FORMAT_RGB8)
-	var generated_texture = ImageTexture.create_from_image(img)
-
-	self.texture = generated_texture
 	
 	material.set_shader_parameter("p_x", point_x)
 	material.set_shader_parameter("p_y", point_y)
