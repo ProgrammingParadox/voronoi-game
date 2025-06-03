@@ -3,8 +3,6 @@ extends CharacterBody2D
 @export var speed = 400
 @export var acceleration: float = 1.0;
 
-@export var seed_tscn : PackedScene
-
 var screen_size 
 
 func resize():
@@ -25,11 +23,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_up"):
 		velocity.y += -acceleration
 		
-	if Input.is_action_just_pressed("ui_accept"):
-		var new_seed = seed_tscn.instantiate()
-		add_sibling(new_seed)
-		new_seed.position = self.position
-	
+		
+	#
 		
 	position += velocity * speed * delta
 	
