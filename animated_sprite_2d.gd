@@ -16,16 +16,16 @@ func _ready():
 	get_tree().get_root().size_changed.connect(resize)
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("player_1_right"):
 		velocity.x += acceleration
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("player_1_left"):
 		velocity.x += -acceleration
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("player_1_down"):
 		velocity.y += acceleration
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("player_1_up"):
 		velocity.y += -acceleration
 		
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("player_1_plant"):
 		var new_seed = seed_tscn.instantiate()
 		add_sibling(new_seed)
 		new_seed.position = self.position
