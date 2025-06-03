@@ -35,9 +35,9 @@ func _process(delta: float) -> void:
 		get_node("../VBoxContainer/Quit").position.x = 10
 		position.x = thing3.position.x + 15 * sin(timer*4)
 		position.y = thing3.position.y
-	if Input.is_action_just_pressed("player_1_down"):
+	if Input.is_action_just_pressed("player_1_down") or Input.is_action_just_pressed("player_2_down"):
 		curr_selection += 1
-	elif Input.is_action_just_pressed("player_1_up"):
+	elif Input.is_action_just_pressed("player_1_up") or Input.is_action_just_pressed("player_2_up"):
 		curr_selection -= 1
 	if curr_selection > 3:
 		curr_selection = 1

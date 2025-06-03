@@ -1,5 +1,6 @@
 shader_type canvas_item;
 
+
 uniform float[4] player_color;
 
 void vertex() {
@@ -8,7 +9,7 @@ void vertex() {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	
+
 	COLOR = vec4(player_color[0], player_color[1], player_color[2], player_color[3]);
 	COLOR.a = texture(TEXTURE, UV).a;
 }

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdjeq7ithvm6g"]
 
-[ext_resource type="Shader" path="res://seed.gdshader" id="1_24r2x"]
+[ext_resource type="Shader" uid="uid://c0ot0vyt7ghab" path="res://seed.gdshader" id="1_24r2x"]
 [ext_resource type="Texture2D" uid="uid://bo1wdon4iyrqm" path="res://seed.svg" id="2_7wu6j"]
-[ext_resource type="Script" path="res://seed.gd" id="3_7wu6j"]
+[ext_resource type="Script" uid="uid://btvn5og5hfa5n" path="res://scripts/seed.gd" id="3_7wu6j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7hxkq"]
 shader = ExtResource("1_24r2x")

@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://4uhfxo2n5kmm"]
 
-[ext_resource type="Texture2D" uid="uid://dq7lwem33alvc" path="res://circle.svg" id="1_0hol4"]
-[ext_resource type="Script" uid="uid://ci6qha6mpa0y8" path="res://node_2d.gd" id="1_d21ai"]
-[ext_resource type="Script" uid="uid://dgmkjvv55hhvw" path="res://animated_sprite_2d.gd" id="2_epypp"]
-[ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://testing.gdshader" id="3_0hol4"]
-[ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://voronoi.gd" id="3_epypp"]
-[ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://seed.tscn" id="4_q6r6c"]
-[ext_resource type="PackedScene" uid="uid://b6v30hgpnovxm" path="res://ui.tscn" id="6_kdubu"]
+[ext_resource type="Script" uid="uid://ci6qha6mpa0y8" path="res://scripts/node_2d.gd" id="1_fws66"]
+[ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://testing.gdshader" id="2_hh0fu"]
+[ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="3_3m5ht"]
+[ext_resource type="Script" uid="uid://dgmkjvv55hhvw" path="res://scripts/animated_sprite_2d.gd" id="4_dubn7"]
+[ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://scenes/seed.tscn" id="5_08kqv"]
+[ext_resource type="Texture2D" uid="uid://dq7lwem33alvc" path="res://circle.svg" id="6_f6ptj"]
+[ext_resource type="PackedScene" uid="uid://b6v30hgpnovxm" path="res://scenes/ui.tscn" id="7_hsdmi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
-shader = ExtResource("3_0hol4")
+shader = ExtResource("2_hh0fu")
 shader_parameter/player_x = 0.0
 shader_parameter/player_y = 0.0
 shader_parameter/points = 100
@@ -21,7 +21,7 @@ shader_parameter/colors = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0hol4")
+"texture": ExtResource("6_f6ptj")
 }],
 "loop": true,
 "name": &"default",
@@ -32,21 +32,21 @@ animations = [{
 radius = 15.1327
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_d21ai")
+script = ExtResource("1_fws66")
 
 [node name="Voronoi" type="Sprite2D" parent="."]
 z_index = -1
 material = SubResource("ShaderMaterial_q6r6c")
 centered = false
 region_rect = Rect2(0, 0, 100, 100)
-script = ExtResource("3_epypp")
+script = ExtResource("3_3m5ht")
 points = 5
 
 [node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("2_epypp")
+script = ExtResource("4_dubn7")
 speed = 800
 acceleration = 0.09
-seed_tscn = ExtResource("4_q6r6c")
+seed_tscn = ExtResource("5_08kqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 scale = Vector2(0.245, 0.245)
@@ -55,4 +55,4 @@ sprite_frames = SubResource("SpriteFrames_0hol4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_0hol4")
 
-[node name="PauseMenu" parent="." instance=ExtResource("6_kdubu")]
+[node name="PauseMenu" parent="." instance=ExtResource("7_hsdmi")]
