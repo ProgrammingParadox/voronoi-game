@@ -8,6 +8,20 @@ uniform float p_x[100];
 uniform float p_y[100];
 uniform float colors[100 * 4];
 
+uniform float width = 0.001;
+
+bool in_range(float a, float b, float range) {
+	return a - range < b && a + range > b;
+}
+
+// thanks to IQ
+float udSegment( in vec2 p, in vec2 a, in vec2 b ){
+    vec2 ba = b - a;
+    vec2 pa = p - a;
+    float h = clamp(dot(pa, ba)/dot(ba,ba), 0.0, 1.0 );
+    return length(pa-h*ba);
+}
+
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
@@ -15,26 +29,86 @@ void vertex() {
 void fragment(){
     //COLOR = vec4(UV, player_y, player_x);
 
-	float dmin = 100000.0;
-	int j = -1;
+	float nearest_1 = 100000.0;
+	int   index_1 = -1;
+	float nearest_2 = 100000.0;
+	int   index_2 = -1;
 	for(int i = 0; i < points; i++){
 		vec2 pos = vec2(p_x[i], p_y[i]);
 
 		float dist = distance(pos, UV);
 
-		if(dist < dmin){
-			dmin = dist;
+		if(dist < nearest_1){
+			nearest_2 = nearest_1;
+			nearest_1 = dist;
 
-			j = i;
-		}
+			index_2 = index_1;
+			index_1 = i;
+		} else if(dist < nearest_2) {
+			nearest_2 = dist;
+			index_2 = i;
+		}	
 	}
-
-	if(dmin < 0.01){
-		COLOR = vec4(0.5, 0.5, 0.5, 1.0);
+	
+	vec2 nearest_point = vec2(p_x[index_1], p_y[index_1]);
+	vec2 next_nearest_point = vec2(p_x[index_2], p_y[index_2]);
+	vec2 mid = (nearest_point + next_nearest_point) / 2.0;
+	vec2 p = UV;
+	
+	// slope between them
+	float slope = (nearest_point.y - next_nearest_point.y) / (nearest_point.x - next_nearest_point.x);
+	
+	if(abs(slope) < 0.00001){
+		slope = 0.00001;
+	}
+	
+	float x = ((slope * ((slope*p.x) - p.y + mid.y)) + mid.x) / ((slope*slope) + 1.0);
+	
+	vec2 o = vec2(x, (x * slope) - (slope * p.x) + p.y);
+	
+	int ci_1 = index_1 * 4;
+	vec3 color_1 = vec3(colors[ci_1 + 0], colors[ci_1 + 1], colors[ci_1 + 2]);
+	int ci_2 = index_2 * 4;
+	vec3 color_2 = vec3(colors[ci_2 + 0], colors[ci_2 + 1], colors[ci_2 + 2]);
+	
+	
+	if(distance(p, o) < 0.001 && color_1 == color_2){
+		COLOR = vec4(color_1*0.8, 1.0);
 	} else {
-		int ci = j * 4;
+		int ci = index_1 * 4;
 		COLOR = vec4(colors[ci + 0], colors[ci + 1], colors[ci + 2], 1.0);
 	}
+	
+	// find y = mx + b for the line segment
+    //var m = (y1 - y2) / (x1 - x2);
+    //var b = y1 - (m * x1);
+    //
+    //// find a perpendicular line that goes through px and py
+    //var pm = - (1 / m);
+    //var pb = py - (pm * px);
+    //
+    //// now I need to find where the two lines intersect
+    //var ix = Math.abs((b - pb) / (m - pm));
+    //var iy = m * ix + b;
+	
+	
+
+	//if(sdist < 0.001){
+		//COLOR = vec4(0.5, 0.5, 0.5, 1.0);
+	//} else {
+		//int ci = index_1 * 4;
+		//COLOR = vec4(colors[ci + 0], colors[ci + 1], colors[ci + 2], 1.0);
+	//}
+	
+	//float border = smoothstep(0.0, 0.005, nearest_2 - nearest_1);
+	//COLOR = vec4(border, border, border, 1.0);
+	//
+	//COLOR = vec4(sdist, sdist, sdist, 1.0);
+	
+	//int ci = index_1 * 4;
+	//float v = (nearest_2 - nearest_1) < 0.001 ? 1.0 : 0.0;
+	//COLOR = vec4(v, v, v, 1.0);
+
 }
 
 //void light() {

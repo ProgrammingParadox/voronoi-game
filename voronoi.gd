@@ -46,11 +46,9 @@ func _ready():
 	material.set_shader_parameter("p_y", point_y)
 	material.set_shader_parameter("colors", colors)
 	material.set_shader_parameter("points", points)
-	#generate_voronoi_diagram(Vector2i(screen_size.x, screen_size.y), 100)
 
 func _process(delta: float) -> void:
-	# generate_voronoi_diagram(Vector2i(screen_size.x, screen_size.y), 100)
-	var player_position = get_parent().get_node("Player").get_node("AnimatedSprite2D").position
+	var player_position = get_parent().get_node("Player").position
 	
 	var px = player_position.x
 	var py = player_position.y

@@ -1,11 +1,9 @@
-extends AnimatedSprite2D
-
+extends CharacterBody2D
 
 @export var speed = 400
 @export var acceleration: float = 1.0;
 
 var screen_size 
-var velocity = Vector2.ZERO;
 
 func resize():
 	screen_size = get_viewport_rect().size
@@ -15,7 +13,7 @@ func _ready():
 	
 	get_tree().get_root().size_changed.connect(resize)
 
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += acceleration
 	if Input.is_action_pressed("ui_left"):
@@ -26,8 +24,7 @@ func _process(delta):
 		velocity.y += -acceleration
 		
 		
-	if velocity.length() > 1:
-		velocity = velocity.normalized()
+	#
 		
 	position += velocity * speed * delta
 	
