@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		position.x = play.position.x + 15 * sin(timer*4)
 		position.y = play.position.y
 		if Input.is_action_just_pressed("enter"):
-			get_tree().change_scene_to_file("res://scenes/node_2d.tscn")
+			get_tree().change_scene_to_file("res://scenes/Game.tscn")
 			
 	elif curr_selection == 2:
 		get_node("../VBoxContainer/Play").position.x = 0
@@ -45,4 +45,4 @@ func _on_settings_mouse_entered() -> void:
 	
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/node_2d.tscn")  #will need to make character select when char select is made
+	get_tree().change_scene_to_file("res://scenes/Game.tscn"); # ll need to make character select when char select is made
