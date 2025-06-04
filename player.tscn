@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhp5xw5nom5h"]
+[gd_scene load_steps=7 format=3 uid="uid://bhp5xw5nom5h"]
 
+[ext_resource type="Shader" uid="uid://3p6fu0ir4lwl" path="res://player.gdshader" id="1_i3pqv"]
 [ext_resource type="Script" uid="uid://btcn8r5ytt6yn" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://dq7lwem33alvc" path="res://circle.svg" id="2_i3pqv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3pqv"]
+resource_local_to_scene = true
+shader = ExtResource("1_i3pqv")
+shader_parameter/color = Vector4(0, 0, 0, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0hol4"]
 animations = [{
@@ -28,6 +34,7 @@ controls_left = "player_1_left"
 controls_right = "player_1_right"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_i3pqv")
 scale = Vector2(0.245, 0.245)
 sprite_frames = SubResource("SpriteFrames_0hol4")
 

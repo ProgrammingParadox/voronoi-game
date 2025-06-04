@@ -30,6 +30,8 @@ func _ready():
 	parent.add_point(self);
 
 func _physics_process(delta: float) -> void:
+	get_node("AnimatedSprite2D").material.set_shader_parameter("color", [color.r * 0.6, color.g * 0.6, color.b * 0.6, color.a]);
+	
 	if Input.is_action_pressed(controls_right):
 		velocity.x += acceleration
 	if Input.is_action_pressed(controls_left):
