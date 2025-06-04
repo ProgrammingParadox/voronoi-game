@@ -60,8 +60,8 @@ func calc_bar(bar):
 	var samples = 0;
 	
 	var m = max(screen_size.x, screen_size.y);
-	for y in range(0, screen_size.y, m / bar_scan_step):
-		for x in range(0, screen_size.x, m / bar_scan_step):
+	for y in range(0, screen_size.y, screen_size.y / bar_scan_step):
+		for x in range(0, screen_size.x, screen_size.x / bar_scan_step):
 			var min_dist = INF;
 			var ind = -1;
 			for i in range(point_x.size()):
