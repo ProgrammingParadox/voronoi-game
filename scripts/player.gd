@@ -11,6 +11,7 @@ extends CharacterBody2D
 @export var controls_down  : String; 
 @export var controls_left  : String; 
 @export var controls_right : String; 
+@export var controls_plant : String;
 
 var screen_size 
 
@@ -38,11 +39,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed(controls_up):
 		velocity.y += -acceleration
 		
-	if Input.is_action_just_pressed("player_1_plant"):
+	if Input.is_action_just_pressed(controls_plant):
 		var new_seed = seed_tscn.instantiate()
 		add_sibling(new_seed)
+		
 		new_seed.position = self.position
-		new_seed.get_node("Sprite2D").player_color = Color(0.0, 1.0, 0.0, 1.0);
+		new_seed.color = color;
+		
+		parent.add_point(new_seed);
 	
 		
 	position += velocity * speed * delta

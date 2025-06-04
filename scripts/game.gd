@@ -39,6 +39,8 @@ func _ready() -> void:
 	resize()
 	
 	get_tree().root.size_changed.connect(resize)
+	
+	get_node("Player 1").color = Global.COLOR_PALETTE[1];
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

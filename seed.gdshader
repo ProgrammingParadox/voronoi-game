@@ -10,7 +10,7 @@ void vertex() {
 void fragment() {
 	// Called for every pixel the material is visible on.
 
-	COLOR = vec4(player_color[0], player_color[1], player_color[2], player_color[3]);
+	COLOR = vec4(player_color[0] * 0.6, player_color[1] * 0.6, player_color[2] * 0.6, player_color[3] * 0.6);
 	COLOR.a = texture(TEXTURE, UV).a;
 }
 

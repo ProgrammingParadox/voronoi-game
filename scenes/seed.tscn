@@ -5,14 +5,12 @@
 [ext_resource type="Script" uid="uid://btvn5og5hfa5n" path="res://scripts/seed.gd" id="3_7wu6j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7hxkq"]
+resource_local_to_scene = true
 shader = ExtResource("1_24r2x")
 shader_parameter/player_color = PackedFloat32Array(0, 0, 0, 0)
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D"]
 material = SubResource("ShaderMaterial_7hxkq")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_7wu6j")
 script = ExtResource("3_7wu6j")
-player_color = Color(1, 0, 0, 1)
