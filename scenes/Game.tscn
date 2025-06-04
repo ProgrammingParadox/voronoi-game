@@ -21,6 +21,7 @@ script = ExtResource("1_s0nni")
 
 [node name="Voronoi" type="Sprite2D" parent="."]
 z_index = -1
+texture_filter = 4
 material = SubResource("ShaderMaterial_q6r6c")
 centered = false
 region_rect = Rect2(0, 0, 100, 100)
@@ -40,3 +41,8 @@ controls_plant = "player_2_plant"
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_kiw3p")]
 z_index = 5
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
