@@ -53,7 +53,10 @@ func _physics_process(delta: float) -> void:
 	
 	var clamped = position.clamp(Vector2.ZERO, screen_size)
 	if clamped != position:
-		velocity *= -1
+		var normal = clamped - position;
+		normal = normal.normalized();
+		
+		velocity = velocity - (2 * velocity.dot(normal) * normal)
 		
 		position = clamped
 	
