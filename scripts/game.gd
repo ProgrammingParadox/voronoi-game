@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var multithread_bar = true;
-@export var bar_scan_step = 10;
+@export var bar_scan_step = 50;
 
 var screen_size: Vector2;
 
@@ -60,8 +60,8 @@ func calc_bar(bar):
 	var samples = 0;
 	
 	var m = max(screen_size.x, screen_size.y);
-	for y in range(0, screen_size.y, screen_size.y / bar_scan_step):
-		for x in range(0, screen_size.x, screen_size.x / bar_scan_step):
+	for y in range(0, screen_size.y, bar_scan_step):
+		for x in range(0, screen_size.x, bar_scan_step):
 			var min_dist = INF;
 			var ind = -1;
 			for i in range(point_x.size()):

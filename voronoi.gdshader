@@ -9,9 +9,9 @@ uniform float player_x = 0.0;
 uniform float player_y = 0.0;
 
 uniform int   points = 0;
-uniform float p_x[100];
-uniform float p_y[100];
-uniform float colors[100 * 4];
+uniform float p_x[500];
+uniform float p_y[500];
+uniform float colors[500 * 4];
 
 const float border_width = 0.002;
 
