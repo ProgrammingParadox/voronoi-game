@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://enm4b7xymu2j"]
 
+[ext_resource type="Script" uid="uid://xl0camu6h8q" path="res://scenes/homebuttons.gd" id="1_reixx"]
 [ext_resource type="FontFile" uid="uid://206u7jy14i4v" path="res://Fonts/futura/Futura Bold Italic font.ttf" id="1_w18ys"]
 [ext_resource type="FontFile" uid="uid://rc0iatixy06p" path="res://Fonts/futura/Futura Heavy Italic font.ttf" id="2_reixx"]
-[ext_resource type="Script" uid="uid://csanh3m10ssg6" path="res://scripts/homepointer.gd" id="3_uhids"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxycn"]
 
@@ -20,6 +20,7 @@ offset_top = 190.0
 offset_right = 738.0
 offset_bottom = 417.0
 theme_override_constants/margin_left = 100
+script = ExtResource("1_reixx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -55,8 +56,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_reixx")
 theme_override_font_sizes/font_size = 60
 text = ">"
-script = ExtResource("3_uhids")
 
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Play" to="MarginContainer/Homepointer" method="_on_play_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="MarginContainer/Homepointer" method="_on_play_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Settings" to="MarginContainer/Homepointer" method="_on_settings_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Play" to="MarginContainer" method="_on_play_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="MarginContainer" method="_on_play_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Settings" to="MarginContainer" method="_on_settings_mouse_entered"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ci6qha6mpa0y8" path="res://scripts/node_2d.gd" id="1_fws66"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="2_hh0fu"]
 [ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="3_3m5ht"]
-[ext_resource type="Script" uid="uid://dgmkjvv55hhvw" path="res://scripts/animated_sprite_2d.gd" id="4_dubn7"]
+[ext_resource type="Script" uid="uid://2guqncx05m6b" path="res://scripts/animated_sprite_2d.gd" id="4_dubn7"]
 [ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://scenes/seed.tscn" id="5_08kqv"]
 [ext_resource type="Texture2D" uid="uid://dq7lwem33alvc" path="res://circle.svg" id="6_f6ptj"]
 [ext_resource type="PackedScene" uid="uid://b6v30hgpnovxm" path="res://scenes/ui.tscn" id="7_hsdmi"]
@@ -40,7 +40,6 @@ material = SubResource("ShaderMaterial_q6r6c")
 centered = false
 region_rect = Rect2(0, 0, 100, 100)
 script = ExtResource("3_3m5ht")
-points = 5
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("4_dubn7")

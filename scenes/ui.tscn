@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://206u7jy14i4v" path="res://Fonts/futura/Futura Bold Italic font.ttf" id="1_fyqef"]
 [ext_resource type="Shader" uid="uid://bkg0nakekncrg" path="res://pauseblur.gdshader" id="1_nltto"]
 [ext_resource type="FontFile" uid="uid://rc0iatixy06p" path="res://Fonts/futura/Futura Heavy Italic font.ttf" id="2_27fn8"]
-[ext_resource type="Script" uid="uid://c4qwuq4s3yd6n" path="res://scripts/pointer.gd" id="3_nltto"]
+[ext_resource type="Script" uid="uid://bk0nuccbdoq4j" path="res://scenes/pause_buttons.gd" id="2_gdt2y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ibotj"]
 shader = ExtResource("1_nltto")
@@ -32,19 +32,20 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="PauseButtons" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 416.0
 offset_top = 190.0
 offset_right = 738.0
 offset_bottom = 417.0
 theme_override_constants/margin_left = 100
+script = ExtResource("2_gdt2y")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseButtons"]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="PauseButtons/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -57,7 +58,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
 text = "Resume"
 alignment = 0
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="PauseButtons/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_fyqef")
@@ -69,7 +70,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
 text = "Settings"
 alignment = 0
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="PauseButtons/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_fyqef")
@@ -81,13 +82,15 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
 text = "Quit"
 alignment = 0
 
-[node name="Pointer" type="Label" parent="MarginContainer"]
+[node name="Pointer" type="Label" parent="PauseButtons"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_27fn8")
 theme_override_font_sizes/font_size = 60
 text = ">"
-script = ExtResource("3_nltto")
 
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Resume" to="MarginContainer/Pointer" method="_on_thing_1_mouse_entered"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Settings" to="MarginContainer/Pointer" method="_on_thing_2_mouse_entered"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Quit" to="MarginContainer/Pointer" method="_on_thing_3_mouse_entered"]
+[connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Resume" to="PauseButtons" method="_on_resume_mouse_entered"]
+[connection signal="pressed" from="PauseButtons/VBoxContainer/Resume" to="PauseButtons" method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Settings" to="PauseButtons" method="_on_settings_mouse_entered"]
+[connection signal="pressed" from="PauseButtons/VBoxContainer/Settings" to="PauseButtons" method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Quit" to="PauseButtons" method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="PauseButtons/VBoxContainer/Quit" to="PauseButtons" method="_on_quit_pressed"]
