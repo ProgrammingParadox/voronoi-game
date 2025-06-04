@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=10 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scripts/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
 [ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="2_r0x5m"]
 [ext_resource type="PackedScene" uid="uid://bhp5xw5nom5h" path="res://player.tscn" id="4_78awf"]
-[ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://scenes/seed.tscn" id="4_joorw"]
 [ext_resource type="PackedScene" uid="uid://b6v30hgpnovxm" path="res://scenes/ui.tscn" id="6_kiw3p"]
 [ext_resource type="Shader" uid="uid://cfyluk3a80u1g" path="res://ownership_bar.gdshader" id="7_400sg"]
 [ext_resource type="Script" uid="uid://bxq838xuvshxn" path="res://scripts/ownership_bar.gd" id="8_g4kob"]
@@ -38,12 +37,9 @@ script = ExtResource("2_r0x5m")
 
 [node name="Player 1" parent="." instance=ExtResource("4_78awf")]
 position = Vector2(154, 146)
-seed_tscn = ExtResource("4_joorw")
-controls_plant = "player_1_plant"
 
 [node name="Player 2" parent="." instance=ExtResource("4_78awf")]
 position = Vector2(987, 492)
-seed_tscn = ExtResource("4_joorw")
 controls_up = "player_2_up"
 controls_down = "player_2_down"
 controls_left = "player_2_left"

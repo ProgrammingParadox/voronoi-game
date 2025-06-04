@@ -51,7 +51,15 @@ func _physics_process(delta: float) -> void:
 		parent.add_point(new_seed);
 	
 		
-	position += velocity * speed * delta
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		var collider = collision_info.get_collider();
+		
+		collider.velocity = velocity;
+		
+		velocity = velocity.bounce(collision_info.get_normal())
+		
+	# position += velocity * speed * delta
 	
 	var clamped = position.clamp(Vector2.ZERO, screen_size)
 	if clamped != position:
