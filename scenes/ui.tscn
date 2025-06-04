@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://bk0nuccbdoq4j" path="res://scripts/pause_buttons.gd" id="2_gdt2y"]
 [ext_resource type="Script" uid="uid://bhwm7j104yvls" path="res://scripts/pause_blur.gd" id="6_8dubc"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dubc"]
+shader = ExtResource("1_nltto")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fyqef"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27fn8"]
@@ -14,9 +17,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ibotj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6e0p"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dubc"]
-shader = ExtResource("1_nltto")
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -26,6 +26,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wm3ai")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_8dubc")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_8dubc")
 
 [node name="PauseButtons" type="MarginContainer" parent="."]
 z_index = 1
@@ -85,13 +92,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_27fn8")
 theme_override_font_sizes/font_size = 60
 text = ">"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_8dubc")
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("6_8dubc")
 
 [connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Resume" to="PauseButtons" method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="PauseButtons/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

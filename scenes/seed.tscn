@@ -11,6 +11,6 @@ shader_parameter/player_color = PackedFloat32Array(0, 0, 0, 0)
 
 [node name="Sprite2D" type="Sprite2D"]
 material = SubResource("ShaderMaterial_7hxkq")
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_7wu6j")
 script = ExtResource("3_7wu6j")
