@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6v30hgpnovxm"]
+[gd_scene load_steps=11 format=3 uid="uid://b6v30hgpnovxm"]
 
 [ext_resource type="FontFile" uid="uid://206u7jy14i4v" path="res://Fonts/futura/Futura Bold Italic font.ttf" id="1_fyqef"]
 [ext_resource type="Shader" uid="uid://bkg0nakekncrg" path="res://pauseblur.gdshader" id="1_nltto"]
+[ext_resource type="Script" uid="uid://bfsir3oilpc1x" path="res://scripts/pause.gd" id="1_wm3ai"]
 [ext_resource type="FontFile" uid="uid://rc0iatixy06p" path="res://Fonts/futura/Futura Heavy Italic font.ttf" id="2_27fn8"]
-[ext_resource type="Script" uid="uid://bk0nuccbdoq4j" path="res://scenes/pause_buttons.gd" id="2_gdt2y"]
+[ext_resource type="Script" uid="uid://bk0nuccbdoq4j" path="res://scripts/pause_buttons.gd" id="2_gdt2y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ibotj"]
 shader = ExtResource("1_nltto")
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wm3ai")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 10
@@ -89,8 +91,8 @@ theme_override_font_sizes/font_size = 60
 text = ">"
 
 [connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Resume" to="PauseButtons" method="_on_resume_mouse_entered"]
-[connection signal="pressed" from="PauseButtons/VBoxContainer/Resume" to="PauseButtons" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseButtons/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Settings" to="PauseButtons" method="_on_settings_mouse_entered"]
 [connection signal="pressed" from="PauseButtons/VBoxContainer/Settings" to="PauseButtons" method="_on_settings_pressed"]
 [connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Quit" to="PauseButtons" method="_on_quit_mouse_entered"]
-[connection signal="pressed" from="PauseButtons/VBoxContainer/Quit" to="PauseButtons" method="_on_quit_pressed"]
+[connection signal="pressed" from="PauseButtons/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

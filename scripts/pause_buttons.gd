@@ -16,7 +16,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	timer += 0.1
 	pointer.global_position = Vector2(430 + 5 * sin(timer*0.8) ,buttons[curr_selection].global_position.y)
-	
 	for i in range(buttons.size()):
 		if i == curr_selection:
 			buttons[i].position.x = 20
@@ -32,13 +31,3 @@ func _on_settings_mouse_entered() -> void:
 
 func _on_quit_mouse_entered() -> void:
 	curr_selection = 2
-
-func _on_resume_pressed() -> void:
-	get_tree().paused = false
-	get_tree().hide
-
-func _on_settings_pressed() -> void:
-	pass # Replace with function body.
-
-func _on_quit_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/home.tscn")

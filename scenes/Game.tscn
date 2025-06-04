@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=8 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scripts/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
 [ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="2_r0x5m"]
 [ext_resource type="PackedScene" uid="uid://bhp5xw5nom5h" path="res://player.tscn" id="4_78awf"]
 [ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://scenes/seed.tscn" id="4_joorw"]
+[ext_resource type="PackedScene" uid="uid://b6v30hgpnovxm" path="res://scenes/ui.tscn" id="6_kiw3p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_t88pq")
@@ -36,3 +37,6 @@ controls_down = "player_2_down"
 controls_left = "player_2_left"
 controls_right = "player_2_right"
 controls_plant = "player_2_plant"
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_kiw3p")]
+z_index = 5

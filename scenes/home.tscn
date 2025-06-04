@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://enm4b7xymu2j"]
 
-[ext_resource type="Script" uid="uid://xl0camu6h8q" path="res://scenes/homebuttons.gd" id="1_reixx"]
+[ext_resource type="Script" uid="uid://xl0camu6h8q" path="res://scripts/homebuttons.gd" id="1_reixx"]
 [ext_resource type="FontFile" uid="uid://206u7jy14i4v" path="res://Fonts/futura/Futura Bold Italic font.ttf" id="1_w18ys"]
 [ext_resource type="FontFile" uid="uid://rc0iatixy06p" path="res://Fonts/futura/Futura Heavy Italic font.ttf" id="2_reixx"]
 
