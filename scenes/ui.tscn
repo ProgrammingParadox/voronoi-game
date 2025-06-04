@@ -1,14 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6v30hgpnovxm"]
+[gd_scene load_steps=12 format=3 uid="uid://b6v30hgpnovxm"]
 
 [ext_resource type="FontFile" uid="uid://206u7jy14i4v" path="res://Fonts/futura/Futura Bold Italic font.ttf" id="1_fyqef"]
 [ext_resource type="Shader" uid="uid://bkg0nakekncrg" path="res://pauseblur.gdshader" id="1_nltto"]
 [ext_resource type="Script" uid="uid://bfsir3oilpc1x" path="res://scripts/pause.gd" id="1_wm3ai"]
 [ext_resource type="FontFile" uid="uid://rc0iatixy06p" path="res://Fonts/futura/Futura Heavy Italic font.ttf" id="2_27fn8"]
 [ext_resource type="Script" uid="uid://bk0nuccbdoq4j" path="res://scripts/pause_buttons.gd" id="2_gdt2y"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ibotj"]
-shader = ExtResource("1_nltto")
-shader_parameter/amount = 0.0
+[ext_resource type="Script" uid="uid://bhwm7j104yvls" path="res://scripts/pause_blur.gd" id="6_8dubc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fyqef"]
 
@@ -17,6 +14,9 @@ shader_parameter/amount = 0.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ibotj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6e0p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dubc"]
+shader = ExtResource("1_nltto")
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -27,14 +27,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wm3ai")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = 10
-material = SubResource("ShaderMaterial_ibotj")
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="PauseButtons" type="MarginContainer" parent="."]
+z_index = 1
 layout_mode = 0
 offset_left = 416.0
 offset_top = 190.0
@@ -91,6 +85,13 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_27fn8")
 theme_override_font_sizes/font_size = 60
 text = ">"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_8dubc")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_8dubc")
 
 [connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Resume" to="PauseButtons" method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="PauseButtons/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
