@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @export var color: Color = Global.COLOR_PALETTE[0];
 
+@export var energy_regen = 20.0;
+
 @export_category("references")
 @export var seed_tscn : PackedScene
 @export var laser_tscn : PackedScene
@@ -127,7 +129,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity *= 0.9;
 	
-	energy += delta * 10;
+	energy += delta * energy_regen;
 	if energy >= max_energy:
 		energy = max_energy
 	
@@ -139,9 +141,9 @@ func _physics_process(delta: float) -> void:
 		dash(delta)
 		energy -= 10
 		
-	if Input.is_action_just_pressed(controls_ranged) && energy > 50:
+	if Input.is_action_just_pressed(controls_ranged) && energy > 80:
 		shoot()
-		energy -= 50
+		energy -= 80
 		
 
 
