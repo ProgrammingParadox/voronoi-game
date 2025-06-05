@@ -40,7 +40,9 @@ func handle_collision():
 			pass
 			
 		var dir = shooter_ref.position.direction_to(target_pos);
-		body.velocity += dir * 1000;
+		
+		if !body is StaticBody2D:
+			body.velocity += dir * 1000;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
