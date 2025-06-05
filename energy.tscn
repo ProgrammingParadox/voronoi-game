@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://bh30v87xi41fx"]
+[gd_scene load_steps=5 format=3 uid="uid://bh30v87xi41fx"]
+
+[ext_resource type="Script" uid="uid://de4v8f5tpo0ji" path="res://energy.gd" id="1_xffyk"]
+[ext_resource type="Script" uid="uid://xoqqt53ckspu" path="res://progress_bar.gd" id="2_if8s4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_if8s4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xffyk"]
 
 [node name="Energy" type="Control"]
 layout_mode = 3
@@ -7,3 +14,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xffyk")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 175.0
+offset_bottom = 653.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_if8s4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xffyk")
+fill_mode = 3
+script = ExtResource("2_if8s4")

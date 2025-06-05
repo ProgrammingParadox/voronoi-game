@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=11 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scripts/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhp5xw5nom5h" path="res://player.tscn" id="4_78awf"]
 [ext_resource type="PackedScene" uid="uid://b6v30hgpnovxm" path="res://scenes/ui.tscn" id="6_kiw3p"]
 [ext_resource type="Shader" uid="uid://cfyluk3a80u1g" path="res://ownership_bar.gdshader" id="7_400sg"]
+[ext_resource type="PackedScene" uid="uid://bh30v87xi41fx" path="res://energy.tscn" id="8_400sg"]
 [ext_resource type="Script" uid="uid://bxq838xuvshxn" path="res://scripts/ownership_bar.gd" id="8_g4kob"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
@@ -64,3 +65,17 @@ offset_bottom = 43.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("8_g4kob")
+
+[node name="Energy" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("8_400sg")]
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 106.0
+offset_bottom = 504.0
+player_ref = NodePath("../Player 1")
+
+[node name="Energy2" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("8_400sg")]
+offset_left = 975.0
+offset_top = -2.0
+offset_right = 1075.0
+offset_bottom = 498.0
+player_ref = NodePath("../Player 2")
