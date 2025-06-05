@@ -1,6 +1,6 @@
 extends Node;
 
-var game_time := 60
+var game_time := 10
 
 var paused = false
 
