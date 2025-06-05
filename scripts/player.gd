@@ -62,6 +62,7 @@ func wall_state(collision: bool, transperancy: float):
 	var collision_shape = current_wall.get_child(0).get_child(0)
 	var sprite = current_wall.get_child(0).get_child(1)
 	var matter = sprite.get_material()
+	matter.set_shader_parameter("wall_color", Global.COLOR_PALETTE[3])
 	matter.set_shader_parameter("transp", transperancy)
 	collision_shape.disabled = not collision
 
@@ -70,7 +71,7 @@ func start_wall_building():
 	wall_start_pos = global_position
 	current_wall = wall_tscn.instantiate()
 	add_sibling(current_wall)
-	wall_state(false, 0.3)
+	wall_state(false, 0.5)
 	current_wall.global_position = wall_start_pos
 
 func finish_wall_building():

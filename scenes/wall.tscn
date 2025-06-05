@@ -10,16 +10,17 @@ size = Vector2(6, 6)
 resource_local_to_scene = true
 shader = ExtResource("1_2ktk7")
 shader_parameter/transp = 0.0
+shader_parameter/wall_color = Vector3(0, 0, 0)
 
 [node name="Wall" type="Node2D"]
 
-[node name="Area2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_y4f30")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 modulate = Color(0.670588, 0.32549, 0.384314, 1)
 self_modulate = Color(1, 0.439216, 0.521569, 1)
 z_index = 2
