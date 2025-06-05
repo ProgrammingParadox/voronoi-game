@@ -18,6 +18,8 @@ func color_to_array(color: Color) -> Array[float]:
 	return [color.r, color.g, color.b, color.a];
 
 func _process(delta: float) -> void:
+	percent = player_reference.energy / 100.0;
+	
 	value = value * (1 - animation_speed) + percent * animation_speed;
 		
 	material.set_shader_parameter("bottom_border_size", bottom_border_size);

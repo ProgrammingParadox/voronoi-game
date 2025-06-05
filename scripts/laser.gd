@@ -36,7 +36,8 @@ func handle_collision():
 	
 	for body in bodies:
 		if body == target_ref:
-			print("got 'em")
+			#print("got 'em")
+			pass
 			
 		var dir = shooter_ref.position.direction_to(target_pos);
 		body.velocity += dir * 1000;

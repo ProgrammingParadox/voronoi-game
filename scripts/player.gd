@@ -18,6 +18,7 @@ extends CharacterBody2D
 @export var controls_melee : String;
 @export var controls_ranged: String = "player_1_shoot";
 
+var max_energy: float = 100.0
 var energy := 10.0
 
 var screen_size 
@@ -125,19 +126,21 @@ func _physics_process(delta: float) -> void:
 	
 	velocity *= 0.9;
 	
-	if energy >= 100:
-		energy = 100
+	energy += delta * 10;
+	if energy >= max_energy:
+		energy = max_energy
 	
-	if Input.is_action_just_pressed(controls_plant):
+	if Input.is_action_just_pressed(controls_plant) && energy > 20:
 		plant()
 		energy -= 20
 	
-	if Input.is_action_just_pressed(controls_melee):
+	if Input.is_action_just_pressed(controls_melee) && energy > 10:
 		dash(delta)
 		energy -= 10
 		
-	if Input.is_action_just_pressed(controls_ranged):
+	if Input.is_action_just_pressed(controls_ranged) && energy > 50:
 		shoot()
+		energy -= 50
 		
 
 
