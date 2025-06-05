@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdjeq7ithvm6g"]
+[gd_scene load_steps=6 format=3 uid="uid://cdjeq7ithvm6g"]
 
 [ext_resource type="Shader" uid="uid://c0ot0vyt7ghab" path="res://seed.gdshader" id="1_24r2x"]
 [ext_resource type="Texture2D" uid="uid://bo1wdon4iyrqm" path="res://seed.svg" id="2_7wu6j"]
@@ -9,8 +9,16 @@ resource_local_to_scene = true
 shader = ExtResource("1_24r2x")
 shader_parameter/player_color = PackedFloat32Array(0, 0, 0, 0)
 
-[node name="Sprite2D" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq6mk"]
+size = Vector2(26, 26)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("3_7wu6j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7hxkq")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_7wu6j")
-script = ExtResource("3_7wu6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kq6mk")
