@@ -65,7 +65,6 @@ func start_wall_building():
 	add_sibling(current_wall)
 	current_wall.global_position = wall_start_pos
 
-		
 func finish_wall_building():
 	var start_pos = current_wall.global_position
 	var distance = sqrt(((global_position.y - current_wall.global_position.y)**2)+((global_position.x - current_wall.global_position.x)**2))/6
