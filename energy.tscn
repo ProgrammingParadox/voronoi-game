@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://de4v8f5tpo0ji" path="res://energy.gd" id="1_xffyk"]
 [ext_resource type="Script" uid="uid://xoqqt53ckspu" path="res://progress_bar.gd" id="2_if8s4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_if8s4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_if8s4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xffyk"]
+bg_color = Color(0.941744, 0.457467, 3.85046e-07, 1)
 
 [node name="Energy" type="Control"]
 layout_mode = 3
@@ -15,19 +16,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xffyk")
+energy_speed = 20.0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+layout_direction = 3
 layout_mode = 0
-offset_right = 175.0
-offset_bottom = 653.0
-theme_override_styles/background = SubResource("StyleBoxEmpty_if8s4")
+offset_left = 755.0
+offset_top = 23.0
+offset_right = 1112.0
+offset_bottom = 65.0
+theme_override_styles/background = SubResource("StyleBoxFlat_if8s4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xffyk")
-fill_mode = 3
+fill_mode = 1
+show_percentage = false
 script = ExtResource("2_if8s4")
-
-[node name="EnergyDisplay" type="Label" parent="ProgressBar"]
-layout_mode = 0
-offset_right = 253.0
-offset_bottom = 141.0
-theme_override_font_sizes/font_size = 100
-text = "1"
