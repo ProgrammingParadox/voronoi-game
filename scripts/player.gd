@@ -14,6 +14,8 @@ extends CharacterBody2D
 @export var controls_plant : String;
 @export var controls_melee : String;
 
+var energy := 10.0
+
 var screen_size 
 
 @onready var parent = get_node("/root/Node2D"); 
