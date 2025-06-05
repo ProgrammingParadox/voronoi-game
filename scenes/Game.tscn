@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://cfyluk3a80u1g" path="res://ownership_bar.gdshader" id="7_400sg"]
 [ext_resource type="PackedScene" uid="uid://bh30v87xi41fx" path="res://energy.tscn" id="8_400sg"]
 [ext_resource type="Script" uid="uid://bxq838xuvshxn" path="res://scripts/ownership_bar.gd" id="8_g4kob"]
+[ext_resource type="Script" uid="uid://biyityj50lmyp" path="res://scenes/match_timer.gd" id="10_qy1jj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_t88pq")
@@ -79,3 +80,14 @@ offset_top = -2.0
 offset_right = 1075.0
 offset_bottom = 498.0
 player_ref = NodePath("../Player 2")
+
+[node name="MatchTimer" type="Label" parent="."]
+offset_left = 587.0
+offset_top = 70.0
+offset_right = 627.0
+offset_bottom = 93.0
+script = ExtResource("10_qy1jj")
+
+[node name="Timer" type="Timer" parent="MatchTimer"]
+
+[connection signal="timeout" from="MatchTimer/Timer" to="MatchTimer" method="_on_timer_timeout"]

@@ -1,5 +1,7 @@
 extends Node;
 
+var game_time := 60
+
 var paused = false
 
 enum SCENES {
