@@ -33,6 +33,27 @@ func _ready():
 	
 	parent.add_point(self);
 
+func dash(delta):
+	var entities = get_tree().get_nodes_in_group("entity");
+		
+	var min_dist = INF;
+	var ref = null;
+	for entity in entities:
+		if entity == self:
+			continue;
+			
+		var dist = entity.position.distance_to(position);
+		if dist < min_dist:
+			min_dist = dist;
+			ref = entity;
+			
+	var dir = position.direction_to(ref.position);
+	
+	velocity = dir * 1000;
+			
+		
+	var collision = move_and_collide(velocity * delta);
+	
 func _physics_process(delta: float) -> void:
 	get_node("AnimatedSprite2D").material.set_shader_parameter("color", [color.r * 0.6, color.g * 0.6, color.b * 0.6, color.a]);
 	
@@ -76,22 +97,5 @@ func _physics_process(delta: float) -> void:
 		parent.add_point(new_seed);
 		
 	if Input.is_action_just_pressed(controls_melee):
-		var entities = get_tree().get_nodes_in_group("entity");
+		dash(delta)
 		
-		var min_dist = INF;
-		var ref = null;
-		for entity in entities:
-			if entity == self:
-				continue;
-				
-			var dist = entity.position.distance_to(position);
-			if dist < min_dist:
-				min_dist = dist;
-				ref = entity;
-				
-		var dir = position.direction_to(ref.position);
-		
-		velocity = dir * 1000;
-				
-			
-		var collision = move_and_collide(velocity * delta);
