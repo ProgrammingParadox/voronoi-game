@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://5ese66emhxwj"]
+[gd_scene load_steps=6 format=3 uid="uid://5ese66emhxwj"]
 
 [ext_resource type="Shader" uid="uid://daqjre6v17n4a" path="res://laser.gdshader" id="1_a7dhc"]
 [ext_resource type="Script" uid="uid://bu7kjxhh2c72u" path="res://scripts/laser.gd" id="2_jjj73"]
@@ -12,11 +12,20 @@ shader_parameter/laser_progress = 0.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_a7dhc"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7dhc"]
+size = Vector2(32, 2045)
+
 [node name="laser" type="TextureRect"]
 material = SubResource("ShaderMaterial_412cd")
 offset_left = -15.0
 offset_right = 15.0
-offset_bottom = 1805.0
+offset_bottom = 2000.0
 pivot_offset = Vector2(15, 0)
 texture = SubResource("CanvasTexture_a7dhc")
 script = ExtResource("2_jjj73")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(15, 1010.5)
+shape = SubResource("RectangleShape2D_a7dhc")
