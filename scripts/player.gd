@@ -101,13 +101,13 @@ func _physics_process(delta: float) -> void:
 	if energy >= 100:
 		energy = 100
 	
-	if Input.is_action_just_pressed(controls_plant) and (energy >= 2):
+	if Input.is_action_just_pressed(controls_plant) and (energy >= 20):
 		plant()
-		energy -= 2
+		energy -= 20
 	
-	if Input.is_action_just_pressed(controls_melee) and (energy >= 1):
+	if Input.is_action_just_pressed(controls_melee) and (energy >= 10):
 		dash(delta)
-		energy -= 1
+		energy -= 10
 		
 
 
