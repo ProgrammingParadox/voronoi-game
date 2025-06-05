@@ -34,15 +34,16 @@ func handle_collision():
 	var bodies = area.get_overlapping_bodies();
 	bodies = bodies.filter(func(x): return x != shooter_ref);
 	
+	var dir = shooter_ref.position.direction_to(target_pos);
 	for body in bodies:
 		if body == target_ref:
 			#print("got 'em")
 			pass
-			
-		var dir = shooter_ref.position.direction_to(target_pos);
 		
 		if !body is StaticBody2D:
 			body.velocity += dir * 1000;
+			
+	shooter_ref.velocity -= dir * 50;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
