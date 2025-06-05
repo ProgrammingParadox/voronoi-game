@@ -29,6 +29,8 @@ func sec_to_cool(seconds):
 	while seconds > 59:
 		seconds -= 60
 		minutes += 1
-	
-	return str(minutes) + ":" + str(seconds).lpad(2, "0")
+	if seconds >= 0 and minutes >= 0:
+		return str(minutes) + ":" + str(seconds).lpad(2, "0")
+	else:
+		return "0:00"
 		

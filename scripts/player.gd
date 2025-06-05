@@ -58,19 +58,24 @@ func plant():
 	parent.add_point(new_seed);
 
 func start_wall_building():
+	
 	is_building_wall = true
 	wall_start_pos = global_position
 	
 	current_wall = wall_tscn.instantiate()
 	add_sibling(current_wall)
+	var collision_shape = current_wall.get_child(0).get_child(0)
+	collision_shape.disabled = true
 	current_wall.global_position = wall_start_pos
 
 func finish_wall_building():
 	var start_pos = current_wall.global_position
 	var distance = sqrt(((global_position.y - current_wall.global_position.y)**2)+((global_position.x - current_wall.global_position.x)**2))/6
 	var angle = start_pos.angle_to_point(global_position)
+	var collision_shape = current_wall.get_child(0).get_child(0)
 	current_wall.rotation = angle
 	current_wall.scale.x = distance
+	collision_shape.disabled = false
 	is_building_wall = false
 	current_wall = null
 	wall_start_pos = Vector2.ZERO
