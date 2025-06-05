@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export_category("references")
 @export var seed_tscn : PackedScene
 @export var laser_tscn : PackedScene
+@export var wall_tscn : PackedScene
 
 @export_category("controls")
 @export var controls_up    : String; 
@@ -19,11 +20,16 @@ extends CharacterBody2D
 @export var controls_plant : String;
 @export var controls_melee : String;
 @export var controls_ranged: String = "player_1_shoot";
+@export var build_wall     : String;
 
 var max_energy: float = 100.0
 var energy := 10.0
 
 var screen_size 
+
+var is_building_wall = false
+var wall_start_pos = Vector2.ZERO
+var current_wall = null
 
 @onready var parent = get_node("/root/Node2D"); 
 
@@ -50,7 +56,29 @@ func plant():
 	new_seed.color = color;
 	
 	parent.add_point(new_seed);
+
+func start_wall_building():
+	is_building_wall = true
+	wall_start_pos = global_position
 	
+	current_wall = wall_tscn.instantiate()
+	add_sibling(current_wall)
+	current_wall.global_position = wall_start_pos
+
+		
+func finish_wall_building():
+	var start_pos = current_wall.global_position
+	var distance = sqrt(((global_position.y - current_wall.global_position.y)**2)+((global_position.x - current_wall.global_position.x)**2))/6
+	var angle = start_pos.angle_to_point(global_position)
+	current_wall.rotation = angle
+	current_wall.scale.x = distance
+	is_building_wall = false
+	current_wall = null
+	wall_start_pos = Vector2.ZERO
+	
+	
+	
+
 func dash(delta):
 	var entities = get_tree().get_nodes_in_group("entity");
 		
@@ -132,6 +160,12 @@ func _physics_process(delta: float) -> void:
 	energy += delta * energy_regen;
 	if energy >= max_energy:
 		energy = max_energy
+		
+	if Input.is_action_just_pressed(build_wall):
+		if not is_building_wall:
+			start_wall_building()
+		else:
+			finish_wall_building()
 	
 	if Input.is_action_just_pressed(controls_plant) && energy > 20:
 		plant()

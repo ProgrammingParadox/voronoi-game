@@ -69,6 +69,7 @@ script = ExtResource("2_r0x5m")
 [node name="Player 1" parent="." groups=["1st", "entity", "players"] instance=ExtResource("4_78awf")]
 position = Vector2(154, 146)
 controls_melee = "player_1_melee"
+build_wall = "play_1_wall"
 
 [node name="Player 2" parent="." groups=["entity", "players"] instance=ExtResource("4_78awf")]
 position = Vector2(987, 492)
@@ -79,6 +80,7 @@ controls_right = "player_2_right"
 controls_plant = "player_2_plant"
 controls_melee = "player_2_melee"
 controls_ranged = "player_2_shoot"
+build_wall = "play_2_wall"
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_kiw3p")]
 z_index = 5
