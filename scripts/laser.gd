@@ -1,7 +1,7 @@
 extends TextureRect
 
 # 0 = searching, 1 = locked, 2 = firing
-var state = 0;
+var state = 2;
 var laser_progress = 0.0;
 
 # Called when the node enters the scene tree for the first time.
