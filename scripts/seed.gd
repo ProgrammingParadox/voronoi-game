@@ -4,6 +4,9 @@ extends Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("entity")
+	add_to_group("seeds")
+	
 	material.set_shader_parameter("player_color", [
 		color.r,
 		color.g,

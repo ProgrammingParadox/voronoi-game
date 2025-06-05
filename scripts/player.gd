@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var controls_left  : String; 
 @export var controls_right : String; 
 @export var controls_plant : String;
+@export var controls_melee : String;
 
 var screen_size 
 
@@ -21,6 +22,9 @@ func resize():
 	screen_size = get_viewport_rect().size
 
 func _ready():
+	add_to_group("entity")
+	add_to_group("players")
+	
 	screen_size = get_viewport_rect().size
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	
@@ -40,16 +44,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y += acceleration
 	if Input.is_action_pressed(controls_up):
 		velocity.y += -acceleration
-		
-	if Input.is_action_just_pressed(controls_plant):
-		var new_seed = seed_tscn.instantiate()
-		add_sibling(new_seed)
-		
-		new_seed.position = self.position
-		new_seed.color = color;
-		
-		parent.add_point(new_seed);
-	
 		
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
@@ -71,3 +65,32 @@ func _physics_process(delta: float) -> void:
 		position = clamped
 	
 	velocity *= 0.9;
+	
+	if Input.is_action_just_pressed(controls_plant):
+		var new_seed = seed_tscn.instantiate()
+		add_sibling(new_seed)
+		
+		new_seed.position = self.position
+		new_seed.color = color;
+		
+		parent.add_point(new_seed);
+		
+	if Input.is_action_just_pressed(controls_melee):
+		var entities = get_tree().get_nodes_in_group("entity");
+		
+		var min_dist = INF;
+		var ref = null;
+		for entity in entities:
+			if entity == self:
+				continue;
+				
+			var dist = entity.position.distance_to(position);
+			if dist < min_dist:
+				min_dist = dist;
+				ref = entity;
+				
+		var dir = position.direction_to(ref.position);
+		
+		velocity = dir * 1000;
+				
+			

@@ -35,16 +35,18 @@ centered = false
 region_rect = Rect2(0, 0, 100, 100)
 script = ExtResource("2_r0x5m")
 
-[node name="Player 1" parent="." instance=ExtResource("4_78awf")]
+[node name="Player 1" parent="." groups=["players"] instance=ExtResource("4_78awf")]
 position = Vector2(154, 146)
+controls_melee = "player_1_melee"
 
-[node name="Player 2" parent="." instance=ExtResource("4_78awf")]
+[node name="Player 2" parent="." groups=["entity", "players"] instance=ExtResource("4_78awf")]
 position = Vector2(987, 492)
 controls_up = "player_2_up"
 controls_down = "player_2_down"
 controls_left = "player_2_left"
 controls_right = "player_2_right"
 controls_plant = "player_2_plant"
+controls_melee = "player_2_melee"
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_kiw3p")]
 z_index = 5
