@@ -98,11 +98,16 @@ func _physics_process(delta: float) -> void:
 	
 	velocity *= 0.9;
 	
-	if Input.is_action_just_pressed(controls_plant):
-		plant()
+	if energy >= 100:
+		energy = 100
 	
-	if Input.is_action_just_pressed(controls_melee):
+	if Input.is_action_just_pressed(controls_plant) and (energy >= 2):
+		plant()
+		energy -= 2
+	
+	if Input.is_action_just_pressed(controls_melee) and (energy >= 1):
 		dash(delta)
+		energy -= 1
 		
 
 

@@ -24,3 +24,10 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_if8s4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xffyk")
 fill_mode = 3
 script = ExtResource("2_if8s4")
+
+[node name="EnergyDisplay" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_right = 253.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 100
+text = "1"
