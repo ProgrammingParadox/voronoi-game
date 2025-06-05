@@ -6,7 +6,7 @@ TODO:
 '''
 
 @export var multithread_bar = true;
-@export var bar_scan_step = 50;
+@export var bar_scan_step = 100;
 
 @onready var bar = get_node("OwnershipBar");
 

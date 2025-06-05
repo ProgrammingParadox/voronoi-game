@@ -89,7 +89,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="OwnershipBar" type="TextureRect" parent="."]
-z_index = 2
+z_index = 5
 material = SubResource("ShaderMaterial_g4kob")
 offset_right = 1155.0
 offset_bottom = 43.0
@@ -128,7 +128,8 @@ offset_bottom = 69.0
 flip_h = true
 player_reference = NodePath("../Player 2")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Timer Background" type="TextureRect" parent="."]
+z_index = 2
 offset_left = 407.0
 offset_top = 35.0
 offset_right = 748.0
