@@ -4,10 +4,12 @@ var display_num : String
 var minutes : int
 var seconds : int
 @onready var timer = $Timer
+@onready var screen_size = DisplayServer.screen_get_size()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start()
 	seconds = Global.game_time
+	position = Vector2((screen_size.x/2.0)-(size.x/2.0), 43)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

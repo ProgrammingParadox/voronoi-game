@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=13 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scripts/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://cfyluk3a80u1g" path="res://ownership_bar.gdshader" id="7_400sg"]
 [ext_resource type="PackedScene" uid="uid://bh30v87xi41fx" path="res://energy.tscn" id="8_400sg"]
 [ext_resource type="Script" uid="uid://bxq838xuvshxn" path="res://scripts/ownership_bar.gd" id="8_g4kob"]
+[ext_resource type="FontFile" uid="uid://cja1fb78jg8se" path="res://Fonts/futura/Futura Bold font.ttf" id="9_qy1jj"]
 [ext_resource type="Script" uid="uid://biyityj50lmyp" path="res://scenes/match_timer.gd" id="10_qy1jj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
@@ -86,6 +87,8 @@ offset_left = 587.0
 offset_top = 70.0
 offset_right = 627.0
 offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("9_qy1jj")
+theme_override_font_sizes/font_size = 100
 script = ExtResource("10_qy1jj")
 
 [node name="Timer" type="Timer" parent="MatchTimer"]
