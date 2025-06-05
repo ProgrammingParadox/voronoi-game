@@ -1,5 +1,10 @@
 extends Node2D
 
+'''
+TODO: 
+	[ ] Mutex to lock points so bar calculation can be done without phantom points?
+'''
+
 @export var multithread_bar = true;
 @export var bar_scan_step = 50;
 
