@@ -35,7 +35,7 @@ centered = false
 region_rect = Rect2(0, 0, 100, 100)
 script = ExtResource("2_r0x5m")
 
-[node name="Player 1" parent="." groups=["players"] instance=ExtResource("4_78awf")]
+[node name="Player 1" parent="." groups=["entity", "players"] instance=ExtResource("4_78awf")]
 position = Vector2(154, 146)
 controls_melee = "player_1_melee"
 
