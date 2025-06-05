@@ -94,3 +94,4 @@ func _physics_process(delta: float) -> void:
 		velocity = dir * 1000;
 				
 			
+		var collision = move_and_collide(velocity * delta);

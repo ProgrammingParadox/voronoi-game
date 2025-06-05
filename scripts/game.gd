@@ -84,7 +84,11 @@ func calc_bar(bar):
 		var owner_colors = Global.COLOR_PALETTE;
 		var owner_amount = [0, 0, 0, 0, 0];
 		for ind in range(owner_indices.size()):
-			var color = references[owner_indices[ind]].color;
+			var onind = owner_indices[ind];
+			if(references.size() <= onind):
+				return;
+			
+			var color = references[onind].color;
 			
 			var oind = owner_colors.find_custom(func(c): return c.is_equal_approx(color));
 			if oind == -1:

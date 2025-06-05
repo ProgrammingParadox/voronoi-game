@@ -25,7 +25,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	move_and_collide(velocity * delta)
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		var collider = collision_info.get_collider();
+		
+		if(collider.velocity.length() > 100):
+			# parent.remove_point(self);
+			pass
+			# queue_free()
+		
+		collider.velocity = velocity;
+		
+		velocity = velocity.bounce(collision_info.get_normal())
 	
 	var clamped = position.clamp(Vector2.ZERO, screen_size)
 	if clamped != position:
