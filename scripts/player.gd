@@ -32,7 +32,16 @@ func _ready():
 	get_tree().get_root().size_changed.connect(resize)
 	
 	parent.add_point(self);
-
+	
+func plant():
+	var new_seed = seed_tscn.instantiate()
+	add_sibling(new_seed)
+	
+	new_seed.position = self.position
+	new_seed.color = color;
+	
+	parent.add_point(new_seed);
+	
 func dash(delta):
 	var entities = get_tree().get_nodes_in_group("entity");
 		
@@ -88,14 +97,11 @@ func _physics_process(delta: float) -> void:
 	velocity *= 0.9;
 	
 	if Input.is_action_just_pressed(controls_plant):
-		var new_seed = seed_tscn.instantiate()
-		add_sibling(new_seed)
-		
-		new_seed.position = self.position
-		new_seed.color = color;
-		
-		parent.add_point(new_seed);
-		
+		plant()
+	
 	if Input.is_action_just_pressed(controls_melee):
 		dash(delta)
 		
+
+
+	
