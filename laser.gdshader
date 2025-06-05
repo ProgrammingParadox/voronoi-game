@@ -14,7 +14,7 @@ void vertex() {
 
 void fragment() {
 	COLOR = laser_color;
-	
+
 	if(laser_state == 0){
 		COLOR.a = (abs(0.5 - UV.x) < 0.3 + (sin(laser_progress * PI * 2.0) * 0.1)) && (mod(UV.y * 1000.0, 100.0) < 50.0) ? 1.0 : 0.0;
 	}

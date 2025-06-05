@@ -91,7 +91,7 @@ func shoot():
 	new_laser.shooter_ref = self;
 	new_laser.target_ref = ref;
 	
-	new_laser.color = color;
+	new_laser.color = color.darkened(0.4);
 	
 func _physics_process(delta: float) -> void:
 	get_node("AnimatedSprite2D").material.set_shader_parameter("color", [color.r * 0.6, color.g * 0.6, color.b * 0.6, color.a]);

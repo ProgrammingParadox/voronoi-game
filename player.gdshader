@@ -8,7 +8,7 @@ void vertex() {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	
+
 	COLOR = vec4(color);
 	COLOR.a = texture(TEXTURE, UV).a;
 }
