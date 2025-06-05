@@ -1,14 +1,11 @@
 extends Label
 
 var display_num : String
-var minutes : int
-var seconds : int
 @onready var timer = $Timer
 @onready var screen_size = get_viewport_rect().size
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start()
-	seconds = Global.game_time
 	
 	screen_size = get_viewport_rect().size
 	position.x = (screen_size.x / 2.0) - (size.x / 2.0)
@@ -33,4 +30,5 @@ func sec_to_cool(seconds):
 		return str(minutes) + ":" + str(seconds).lpad(2, "0")
 	else:
 		return "0:00"
+		get_tree().change_scene_to_file("res://scenes/home.tscn")
 		
