@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://5ese66emhxwj"]
+
+[ext_resource type="Shader" uid="uid://daqjre6v17n4a" path="res://laser.gdshader" id="1_a7dhc"]
+[ext_resource type="Script" uid="uid://bu7kjxhh2c72u" path="res://scripts/laser.gd" id="2_jjj73"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_412cd"]
+resource_local_to_scene = true
+shader = ExtResource("1_a7dhc")
+shader_parameter/laser_color = Vector4(1, 0, 0, 1)
+shader_parameter/laser_state = 0
+shader_parameter/laser_progress = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a7dhc"]
+
+[node name="laser" type="TextureRect"]
+material = SubResource("ShaderMaterial_412cd")
+offset_left = 500.0
+offset_top = 304.0
+offset_right = 560.0
+offset_bottom = 2109.0
+rotation = -2.00887
+pivot_offset = Vector2(30, 0)
+texture = SubResource("CanvasTexture_a7dhc")
+script = ExtResource("2_jjj73")
