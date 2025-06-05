@@ -136,4 +136,11 @@ offset_bottom = 105.0
 texture = ExtResource("13_7ua8r")
 expand_mode = 1
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(509, -36)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-1, -2)
+polygon = PackedVector2Array(-509, 108, -140, 107, -111, 81, -96, 81, -62, 143, 201, 143, 236, 80, 251, 81, 279, 107, 647, 107, 647, 35, -509, 38)
+
 [connection signal="timeout" from="MatchTimer/Timer" to="MatchTimer" method="_on_timer_timeout"]

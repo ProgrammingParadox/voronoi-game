@@ -109,7 +109,8 @@ func _physics_process(delta: float) -> void:
 	if collision_info:
 		var collider = collision_info.get_collider();
 		
-		collider.velocity = velocity;
+		if !collider is StaticBody2D:
+			collider.velocity = velocity;
 		
 		velocity = velocity.bounce(collision_info.get_normal())
 		

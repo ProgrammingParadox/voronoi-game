@@ -29,12 +29,13 @@ func _process(delta: float) -> void:
 	if collision_info:
 		var collider = collision_info.get_collider();
 		
-		if(collider.velocity.length() > 100):
-			# parent.remove_point(self);
-			pass
-			# queue_free()
-		
-		collider.velocity = velocity;
+		if !collider is StaticBody2D:
+			if(collider.velocity.length() > 100):
+				# parent.remove_point(self);
+				pass
+				# queue_free()
+			
+			collider.velocity = velocity;
 		
 		velocity = velocity.bounce(collision_info.get_normal())
 	
