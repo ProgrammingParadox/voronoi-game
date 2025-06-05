@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=11 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scripts/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]

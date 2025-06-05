@@ -16,6 +16,7 @@ extends CharacterBody2D
 @export var controls_right : String; 
 @export var controls_plant : String;
 @export var controls_melee : String;
+@export var controls_ranged: String = "player_1_shoot";
 
 var energy := 10.0
 
@@ -68,6 +69,30 @@ func dash(delta):
 		
 	var collision = move_and_collide(velocity * delta);
 	
+func shoot():
+	var entities = get_tree().get_nodes_in_group("players");
+		
+	var min_dist = INF;
+	var ref = null;
+	for entity in entities:
+		if entity == self:
+			continue;
+			
+		var dist = entity.position.distance_to(position);
+		if dist < min_dist:
+			min_dist = dist;
+			ref = entity;
+			
+	# var dir = position.direction_to(ref.position);
+	
+	var new_laser = laser_tscn.instantiate()
+	add_sibling(new_laser)
+	
+	new_laser.shooter_ref = self;
+	new_laser.target_ref = ref;
+	
+	new_laser.color = color;
+	
 func _physics_process(delta: float) -> void:
 	get_node("AnimatedSprite2D").material.set_shader_parameter("color", [color.r * 0.6, color.g * 0.6, color.b * 0.6, color.a]);
 	
@@ -111,6 +136,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(controls_melee) and (energy >= 10):
 		dash(delta)
 		energy -= 10
+		
+	if Input.is_action_just_pressed(controls_ranged):
+		shoot()
 		
 
 
