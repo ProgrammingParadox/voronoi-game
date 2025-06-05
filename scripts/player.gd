@@ -67,6 +67,7 @@ func wall_state(collision: bool, transperancy: float):
 	collision_shape.disabled = not collision
 
 func start_wall_building():
+	energy -= 20
 	is_building_wall = true
 	wall_start_pos = global_position
 	current_wall = wall_tscn.instantiate()
@@ -81,11 +82,14 @@ func finish_wall_building():
 	wall_start_pos = Vector2.ZERO
 	
 func wall_update():
+	energy -= 0.5
 	var start_pos = current_wall.global_position
 	var distance = sqrt(((global_position.y - current_wall.global_position.y)**2)+((global_position.x - current_wall.global_position.x)**2))/6
 	var angle = start_pos.angle_to_point(global_position)
 	current_wall.rotation = angle
 	current_wall.scale.x = distance
+	if current_wall.scale.x < 2:
+		current_wall.scale.x = 2
 	
 
 
@@ -171,7 +175,7 @@ func _physics_process(delta: float) -> void:
 	if energy >= max_energy:
 		energy = max_energy
 		
-	if Input.is_action_just_pressed(build_wall):
+	if Input.is_action_just_pressed(build_wall) and energy > 20 or (is_building_wall and (energy <= 0 or Input.is_action_just_pressed(build_wall))):
 		if not is_building_wall:
 			start_wall_building()
 		else:
@@ -191,6 +195,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(controls_ranged) && energy > 80:
 		shoot()
 		energy -= 80
+		
 		
 
 
