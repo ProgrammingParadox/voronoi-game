@@ -16,6 +16,7 @@ shader_parameter/laser_progress = 0.0
 size = Vector2(32, 2045)
 
 [node name="laser" type="TextureRect"]
+z_index = 1
 material = SubResource("ShaderMaterial_412cd")
 offset_left = -15.0
 offset_right = 15.0

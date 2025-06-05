@@ -39,9 +39,7 @@ func handle_collision():
 			print("got 'em")
 			
 		var dir = shooter_ref.position.direction_to(target_pos);
-		var b = body.velocity.bounce(dir);
-		
-		body.velocity.x = 1000;
+		body.velocity += dir * 1000;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
