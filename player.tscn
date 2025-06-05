@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhp5xw5nom5h"]
+[gd_scene load_steps=9 format=3 uid="uid://bhp5xw5nom5h"]
 
 [ext_resource type="Shader" uid="uid://3p6fu0ir4lwl" path="res://player.gdshader" id="1_i3pqv"]
 [ext_resource type="Script" uid="uid://btcn8r5ytt6yn" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://scenes/seed.tscn" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dq7lwem33alvc" path="res://circle.svg" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://5ese66emhxwj" path="res://scenes/laser.tscn" id="3_sweqy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i3pqv"]
 resource_local_to_scene = true
@@ -31,6 +32,7 @@ script = ExtResource("1_onrkg")
 speed = 800
 acceleration = 50.0
 seed_tscn = ExtResource("2_hqtel")
+laser_tscn = ExtResource("3_sweqy")
 controls_up = "player_1_up"
 controls_down = "player_1_down"
 controls_left = "player_1_left"
