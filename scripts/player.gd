@@ -5,8 +5,11 @@ extends CharacterBody2D
 
 @export var color: Color = Global.COLOR_PALETTE[0];
 
+@export_category("references")
 @export var seed_tscn : PackedScene
+@export var laser_tscn : PackedScene
 
+@export_category("controls")
 @export var controls_up    : String; 
 @export var controls_down  : String; 
 @export var controls_left  : String; 
