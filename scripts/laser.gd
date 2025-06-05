@@ -1,7 +1,7 @@
 extends TextureRect
 
 # 0 = searching, 1 = locked, 2 = firing
-var state = 2;
+var state = 0;
 var laser_progress = 0.0;
 
 var color = Color(1.0, 0.0, 0.0, 1.0);
@@ -17,9 +17,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position = shooter_ref.position;
+	position.x -= size.x / 2.0;
 	
-	var dir = position.direction_to(target_ref.position);
-	rotation = atan2(dir.y, dir.x) - 90.0;
+	var dirv = target_ref.position - shooter_ref.position;
+	rotation = atan2(dirv.y, dirv.x) - PI / 2;
+	
+	pivot_offset = Vector2(size.x / 2.0, 0.0);
 	
 	laser_progress += delta;
 	

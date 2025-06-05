@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6o2byqplsk67"]
+
+[ext_resource type="Shader" uid="uid://cfyluk3a80u1g" path="res://ownership_bar.gdshader" id="1_okkh2"]
+[ext_resource type="Script" uid="uid://bxq838xuvshxn" path="res://scripts/ownership_bar.gd" id="2_4uums"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qy1jj"]
+resource_local_to_scene = true
+shader = ExtResource("1_okkh2")
+shader_parameter/percent = 0.5
+shader_parameter/filled_color = Vector4(0, 1, 1, 1)
+shader_parameter/unfilled_color = Vector4(0, 0, 0, 1)
+shader_parameter/bottom_border_size = 0.001
+shader_parameter/direction = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qy1jj"]
+
+[node name="OwnershipBar" type="TextureRect"]
+z_index = 2
+material = SubResource("ShaderMaterial_qy1jj")
+offset_right = 1155.0
+offset_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("CanvasTexture_qy1jj")
+script = ExtResource("2_4uums")

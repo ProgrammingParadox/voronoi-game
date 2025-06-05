@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds4kn61jh23bw"]
+
+[ext_resource type="Shader" uid="uid://byq7vk3sb2gvk" path="res://shaders/energybar.gdshader" id="1_6dfqc"]
+[ext_resource type="Script" uid="uid://y5qfc2r05hoh" path="res://scripts/energy_bar.gd" id="2_hk11k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cpl0g"]
+resource_local_to_scene = true
+shader = ExtResource("1_6dfqc")
+shader_parameter/percent = 0.0
+shader_parameter/filled_color = Vector4(1, 1, 1, 1)
+shader_parameter/unfilled_color = Vector4(0, 0, 0, 1)
+shader_parameter/bottom_border_size = 0.001
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ypsb4"]
+
+[node name="EnergyBar" type="TextureRect"]
+material = SubResource("ShaderMaterial_cpl0g")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CanvasTexture_ypsb4")
+script = ExtResource("2_hk11k")

@@ -16,10 +16,10 @@ void fragment() {
 	COLOR = laser_color;
 
 	if(laser_state == 0){
-		COLOR.a = (abs(0.5 - UV.x) < 0.3 + (sin(laser_progress * PI * 2.0) * 0.1)) && (mod(UV.y * 1000.0, 100.0) < 50.0) ? 1.0 : 0.0;
+		COLOR.a = (abs(0.5 - UV.x) < 0.3 + (sin(laser_progress * PI * 2.0) * 0.05)) && (mod(UV.y * 1000.0, 100.0) < 50.0) ? 0.5 : 0.0;
 	}
 	if(laser_state == 1){
-		COLOR.a = (abs(0.5 - UV.x) < 0.3) && (mod(UV.y * 1000.0, 100.0) < laser_progress * laser_progress * 100.0) ? 1.0 : 0.0;
+		COLOR.a = (abs(0.5 - UV.x) < 0.3) && (mod(UV.y * 1000.0, 100.0) < laser_progress * laser_progress * 100.0) ? 0.5 : 0.0;
 	}
 	if(laser_state == 2) {
 		COLOR.a = abs(0.5 - UV.x) < sin(laser_progress * PI * 8.0) ? 1.0 : 0.0;

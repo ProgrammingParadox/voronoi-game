@@ -1,19 +1,13 @@
 shader_type canvas_item;
 
-uniform float percent = 0.0;
+uniform float percent = 0.5;
 uniform vec4  filled_color   = vec4(1.0, 1.0, 1.0, 1.0);
 uniform vec4  unfilled_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform float bottom_border_size = 0.001;
 
-// 0 is left to right, 1 is right to left
-uniform int direction = 0;
+const float shear = 0.92;
 
 void fragment() {
-	//float p = percent;
-	//if(direction == 1){
-		//p = 1.0 - percent;
-	//}
-	
 	if(1.0 - UV.y < bottom_border_size){
 		COLOR = vec4(percent < UV.x ? unfilled_color * 0.6 : filled_color * 0.6);
 
@@ -23,4 +17,6 @@ void fragment() {
 	} else {
 		COLOR = vec4(percent < UV.x ? unfilled_color : filled_color);
 	}
+	
+	if(UV.x > shear) COLOR.a = ((UV.x - shear) * (11.0) + UV.y) < sqrt(shear) ? COLOR.a : 0.0;
 }

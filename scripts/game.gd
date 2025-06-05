@@ -8,6 +8,8 @@ TODO:
 @export var multithread_bar = true;
 @export var bar_scan_step = 50;
 
+@onready var bar = get_node("OwnershipBar");
+
 var screen_size: Vector2;
 
 var references = [];
@@ -51,12 +53,18 @@ func _ready() -> void:
 	get_tree().root.size_changed.connect(resize)
 	
 	get_node("Player 1").color = Global.COLOR_PALETTE[1];
-	
-	var bar = get_node("OwnershipBar");
-	
+
 	if multithread_bar:
 		thread = Thread.new();
 		thread.start(calc_bar.bind(bar));
+		
+	var ebar1 = get_node("EnergyBar1");
+	ebar1.filled_color   = Global.COLOR_PALETTE[2].darkened(0.4);
+	ebar1.unfilled_color = Global.COLOR_PALETTE[2].darkened(0.2);
+	
+	var ebar2 = get_node("EnergyBar2");
+	ebar2.filled_color   = Global.COLOR_PALETTE[2].darkened(0.4);
+	ebar2.unfilled_color = Global.COLOR_PALETTE[2].darkened(0.2);
 
 func calc_bar(bar):
 	var owner_indices = [];
@@ -108,7 +116,6 @@ func calc_bar(bar):
 func _process(delta: float) -> void:
 	build_voronoi_seeds()
 	
-	var bar = get_node("OwnershipBar");
 	if multithread_bar:
 		if !thread.is_alive():
 			thread.wait_to_finish();

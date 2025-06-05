@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/Global.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 player_1_left={

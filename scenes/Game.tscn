@@ -1,15 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=17 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scripts/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
 [ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="2_r0x5m"]
-[ext_resource type="PackedScene" uid="uid://bhp5xw5nom5h" path="res://player.tscn" id="4_78awf"]
+[ext_resource type="PackedScene" uid="uid://bhp5xw5nom5h" path="res://scenes/player.tscn" id="4_78awf"]
 [ext_resource type="PackedScene" uid="uid://b6v30hgpnovxm" path="res://scenes/ui.tscn" id="6_kiw3p"]
 [ext_resource type="Shader" uid="uid://cfyluk3a80u1g" path="res://ownership_bar.gdshader" id="7_400sg"]
-[ext_resource type="PackedScene" uid="uid://bh30v87xi41fx" path="res://energy.tscn" id="8_400sg"]
 [ext_resource type="Script" uid="uid://bxq838xuvshxn" path="res://scripts/ownership_bar.gd" id="8_g4kob"]
 [ext_resource type="FontFile" uid="uid://cja1fb78jg8se" path="res://Fonts/futura/Futura Bold font.ttf" id="9_qy1jj"]
+[ext_resource type="PackedScene" uid="uid://ds4kn61jh23bw" path="res://scenes/energy_bar.tscn" id="10_3xj3m"]
 [ext_resource type="Script" uid="uid://biyityj50lmyp" path="res://scenes/match_timer.gd" id="10_qy1jj"]
+[ext_resource type="Shader" uid="uid://byq7vk3sb2gvk" path="res://shaders/energybar.gdshader" id="11_mcffj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_t88pq")
@@ -20,9 +21,29 @@ shader_parameter/p_x = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 shader_parameter/p_y = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 shader_parameter/colors = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qy1jj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4kob"]
+resource_local_to_scene = true
 shader = ExtResource("7_400sg")
 shader_parameter/percent = 0.5
+shader_parameter/filled_color = Vector4(0, 1, 1, 1)
+shader_parameter/unfilled_color = Vector4(0, 0, 0, 1)
+shader_parameter/bottom_border_size = 0.001
+shader_parameter/direction = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qy1jj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2rd6h"]
+resource_local_to_scene = true
+shader = ExtResource("11_mcffj")
+shader_parameter/percent = 0.0
+shader_parameter/filled_color = Vector4(1, 1, 1, 1)
+shader_parameter/unfilled_color = Vector4(0, 0, 0, 1)
+shader_parameter/bottom_border_size = 0.001
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xj3m"]
+resource_local_to_scene = true
+shader = ExtResource("11_mcffj")
+shader_parameter/percent = 0.0
 shader_parameter/filled_color = Vector4(1, 1, 1, 1)
 shader_parameter/unfilled_color = Vector4(0, 0, 0, 1)
 shader_parameter/bottom_border_size = 0.001
@@ -50,6 +71,7 @@ controls_left = "player_2_left"
 controls_right = "player_2_right"
 controls_plant = "player_2_plant"
 controls_melee = "player_2_melee"
+controls_ranged = "player_2_shoot"
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_kiw3p")]
 z_index = 5
@@ -61,26 +83,13 @@ grow_vertical = 1
 
 [node name="OwnershipBar" type="TextureRect" parent="."]
 z_index = 2
-material = SubResource("ShaderMaterial_qy1jj")
+material = SubResource("ShaderMaterial_g4kob")
 offset_right = 1155.0
 offset_bottom = 43.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = SubResource("CanvasTexture_qy1jj")
 script = ExtResource("8_g4kob")
-
-[node name="Energy" parent="." node_paths=PackedStringArray("player_ref") groups=["1st"] instance=ExtResource("8_400sg")]
-offset_left = 6.0
-offset_top = 4.0
-offset_right = 106.0
-offset_bottom = 504.0
-player_ref = NodePath("../Player 1")
-
-[node name="Energy2" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("8_400sg")]
-offset_left = 975.0
-offset_top = -2.0
-offset_right = 1075.0
-offset_bottom = 498.0
-player_ref = NodePath("../Player 2")
 
 [node name="MatchTimer" type="Label" parent="."]
 offset_left = 587.0
@@ -92,5 +101,21 @@ theme_override_font_sizes/font_size = 100
 script = ExtResource("10_qy1jj")
 
 [node name="Timer" type="Timer" parent="MatchTimer"]
+
+[node name="EnergyBar1" parent="." node_paths=PackedStringArray("player_reference") instance=ExtResource("10_3xj3m")]
+material = SubResource("ShaderMaterial_2rd6h")
+offset_top = 39.0
+offset_right = 400.0
+offset_bottom = 69.0
+player_reference = NodePath("../Player 1")
+
+[node name="EnergyBar2" parent="." node_paths=PackedStringArray("player_reference") instance=ExtResource("10_3xj3m")]
+material = SubResource("ShaderMaterial_3xj3m")
+offset_left = 755.0
+offset_top = 39.0
+offset_right = 1155.0
+offset_bottom = 69.0
+flip_h = true
+player_reference = NodePath("../Player 2")
 
 [connection signal="timeout" from="MatchTimer/Timer" to="MatchTimer" method="_on_timer_timeout"]

@@ -66,7 +66,6 @@ func dash(delta):
 	
 	velocity = dir * 1000;
 			
-		
 	var collision = move_and_collide(velocity * delta);
 	
 func shoot():
@@ -129,11 +128,11 @@ func _physics_process(delta: float) -> void:
 	if energy >= 100:
 		energy = 100
 	
-	if Input.is_action_just_pressed(controls_plant) and (energy >= 20):
+	if Input.is_action_just_pressed(controls_plant):
 		plant()
 		energy -= 20
 	
-	if Input.is_action_just_pressed(controls_melee) and (energy >= 10):
+	if Input.is_action_just_pressed(controls_melee):
 		dash(delta)
 		energy -= 10
 		

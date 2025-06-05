@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh30v87xi41fx"]
+[gd_scene load_steps=5 format=3 uid="uid://brwmnochw1jut"]
 
 [ext_resource type="Script" uid="uid://de4v8f5tpo0ji" path="res://energy.gd" id="1_xffyk"]
 [ext_resource type="Script" uid="uid://xoqqt53ckspu" path="res://progress_bar.gd" id="2_if8s4"]
@@ -20,13 +20,9 @@ energy_speed = 20.0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_direction = 3
-layout_mode = 0
-offset_left = 755.0
-offset_top = 23.0
-offset_right = 1112.0
-offset_bottom = 65.0
+layout_mode = 1
+anchors_preset = -1
 theme_override_styles/background = SubResource("StyleBoxFlat_if8s4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xffyk")
-fill_mode = 1
 show_percentage = false
 script = ExtResource("2_if8s4")
