@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnf20gaspikdy"]
+[gd_scene load_steps=5 format=3 uid="uid://cnf20gaspikdy"]
 
+[ext_resource type="Shader" uid="uid://bxibnvql3odcr" path="res://wall.gdshader" id="1_2ktk7"]
 [ext_resource type="Texture2D" uid="uid://bo1wdon4iyrqm" path="res://seed.svg" id="1_xxgf6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4f30"]
 size = Vector2(6, 6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e00m8"]
+resource_local_to_scene = true
+shader = ExtResource("1_2ktk7")
+shader_parameter/transp = 0.0
 
 [node name="Wall" type="Node2D"]
 
@@ -14,7 +20,10 @@ position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_y4f30")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+modulate = Color(0.670588, 0.32549, 0.384314, 1)
+self_modulate = Color(1, 0.439216, 0.521569, 1)
 z_index = 2
+material = SubResource("ShaderMaterial_e00m8")
 position = Vector2(1.78814e-07, -1.90735e-06)
 scale = Vector2(0.047, 0.047)
 texture = ExtResource("1_xxgf6")
