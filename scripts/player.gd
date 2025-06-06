@@ -62,10 +62,11 @@ func wall_state(collision: bool, transperancy: float):
 	var collision_shape = current_wall.get_child(0).get_child(0)
 	var sprite = current_wall.get_child(0).get_child(1)
 	var matter = sprite.get_material()
-	matter.set_shader_parameter("wall_color", Global.COLOR_PALETTE[3])
+	matter.set_shader_parameter("wall_color", Global.COLOR_PALETTE[4])
 	matter.set_shader_parameter("transp", transperancy)
 	collision_shape.disabled = not collision
 
+var initial_wall_energy = 0.0; # the energy the player has when they start building the wall
 func start_wall_building():
 	energy -= 20
 	is_building_wall = true
@@ -74,6 +75,8 @@ func start_wall_building():
 	add_sibling(current_wall)
 	wall_state(false, 0.5)
 	current_wall.global_position = wall_start_pos
+	
+	initial_wall_energy = energy;
 
 func finish_wall_building():
 	wall_state(true, 1.0)
@@ -82,12 +85,15 @@ func finish_wall_building():
 	wall_start_pos = Vector2.ZERO
 	
 func wall_update():
-	energy -= 0.5
 	var start_pos = current_wall.global_position
-	var distance = sqrt(((global_position.y - current_wall.global_position.y)**2)+((global_position.x - current_wall.global_position.x)**2))/6
+	# var distance = sqrt(((global_position.y - current_wall.global_position.y)**2)+((global_position.x - current_wall.global_position.x)**2))/6
+	var distance = start_pos.distance_to(position)/6 # this does the same thing. Also, why 6?
 	var angle = start_pos.angle_to_point(global_position)
 	current_wall.rotation = angle
 	current_wall.scale.x = distance
+	
+	energy = initial_wall_energy - distance / 3;
+	
 	if current_wall.scale.x < 2:
 		current_wall.scale.x = 2
 	
