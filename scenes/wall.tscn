@@ -1,27 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnf20gaspikdy"]
+[gd_scene load_steps=6 format=3 uid="uid://cnf20gaspikdy"]
 
 [ext_resource type="Shader" uid="uid://bxibnvql3odcr" path="res://wall.gdshader" id="1_2ktk7"]
-[ext_resource type="Texture2D" uid="uid://bo1wdon4iyrqm" path="res://seed.svg" id="1_xxgf6"]
+[ext_resource type="Script" uid="uid://ckhoamcgd57fx" path="res://scripts/wall.gd" id="1_e00m8"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e00m8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ktk7"]
 resource_local_to_scene = true
 shader = ExtResource("1_2ktk7")
 shader_parameter/transp = 0.0
 shader_parameter/wall_color = Vector3(0, 0, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4f30"]
-size = Vector2(6, 6)
+[sub_resource type="CanvasTexture" id="CanvasTexture_2ktk7"]
 
-[node name="Wall" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ktk7"]
+resource_local_to_scene = true
+size = Vector2(57.75, 6)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TextureRect" type="TextureRect"]
 z_index = 2
-material = SubResource("ShaderMaterial_e00m8")
-position = Vector2(1.78814e-07, -1.90735e-06)
-scale = Vector2(0.047, 0.047)
-texture = ExtResource("1_xxgf6")
-offset = Vector2(64, 0)
+material = SubResource("ShaderMaterial_2ktk7")
+offset_right = 50.0
+offset_bottom = 6.0
+pivot_offset = Vector2(0, 3)
+texture = SubResource("CanvasTexture_2ktk7")
+script = ExtResource("1_e00m8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 0)
-shape = SubResource("RectangleShape2D_y4f30")
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(25, 3)
+shape = SubResource("RectangleShape2D_2ktk7")

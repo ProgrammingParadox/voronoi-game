@@ -59,51 +59,60 @@ func plant():
 	
 	parent.add_point(new_seed);
 
-func wall_state(collision: bool, transperancy: float):
-	var collision_shape = current_wall.get_node("CollisionShape2D");
-	var sprite = current_wall.get_node("Sprite2D");
-	var matter = sprite.get_material()
-	matter.set_shader_parameter("wall_color", Global.COLOR_PALETTE[4])
-	matter.set_shader_parameter("transp", transperancy)
-	collision_shape.disabled = not collision
+#func wall_state(collision: bool, transperancy: float):
+	#var collision_shape = current_wall.get_node("CollisionShape2D");
+	#var sprite = current_wall.get_node("Sprite2D");
+	#var matter = sprite.get_material()
+	#matter.set_shader_parameter("wall_color", Global.COLOR_PALETTE[4])
+	#matter.set_shader_parameter("transp", transperancy)
+	#collision_shape.disabled = not collision
 
 var initial_wall_energy = 0.0; # the energy the player has when they start building the wall
 func start_wall_building():
 	energy -= 20
 	is_building_wall = true
 	wall_start_pos = global_position
+	
 	current_wall = wall_tscn.instantiate()
 	add_sibling(current_wall)
-	wall_state(false, 0.5)
 	
-	current_wall.add_to_group("wall");
+	current_wall.builder_ref = self;
 	
-	current_wall.global_position = wall_start_pos
+	#wall_state(false, 0.5)
+	
+	#current_wall.add_to_group("wall");
+	#current_wall.built = false;
+	#current_wall.global_position = wall_start_pos
+	
+	current_wall.start_position = wall_start_pos
 	
 	initial_wall_energy = energy;
 
 func finish_wall_building():
-	wall_state(true, 1.0)
+	#wall_state(true, 1.0)
 	is_building_wall = false
 	
-	if current_wall.scale.x < 4:
-		current_wall.queue_free();
+	# current_wall.end_position = global_position;
+	current_wall.built = true;
+	
+	#if current_wall.scale.x < 4:
+		#current_wall.queue_free();
 	
 	current_wall = null
 	wall_start_pos = Vector2.ZERO
 	
 func wall_update():
-	var start_pos = current_wall.global_position
+	#var start_pos = current_wall.global_position
+	#
+	#var sprite = current_wall.get_node("Sprite2D");
+	#
+	var distance = current_wall.global_position.distance_to(position) # this does the same thing. Also, why 6?
+	#var angle = start_pos.angle_to_point(global_position)
+	#
+	#current_wall.rotation = angle
+	#current_wall.scale.x = distance - wall_offset
 	
-	var sprite = current_wall.get_node("Sprite2D");
-	
-	var distance = start_pos.distance_to(position)/6 # this does the same thing. Also, why 6?
-	var angle = start_pos.angle_to_point(global_position)
-	
-	current_wall.rotation = angle
-	current_wall.scale.x = distance - wall_offset
-	
-	energy = initial_wall_energy - distance / 3;
+	# energy = initial_wall_energy - distance / 3;
 	
 
 
