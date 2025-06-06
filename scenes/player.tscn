@@ -26,7 +26,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
 radius = 15.1327
 
-[node name="Player" type="CharacterBody2D" groups=["wall"]]
+[node name="Player" type="CharacterBody2D"]
 z_index = 2
 motion_mode = 1
 script = ExtResource("1_onrkg")

@@ -24,7 +24,10 @@ func color_to_array(color: Color) -> Array[float]:
 	return [color.r, color.g, color.b, color.a];
 
 func _process(delta: float) -> void:
-	value = value * (1 - animation_speed) + percent * animation_speed;
+	if animate_smooth:
+		value = value * (1 - animation_speed) + percent * animation_speed;
+	else:
+		value = percent
 	
 	#if direction == Direction.right_to_left:
 		#material.set_shader_parameter("direction", 1);

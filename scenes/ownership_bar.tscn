@@ -23,3 +23,4 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = SubResource("CanvasTexture_qy1jj")
 script = ExtResource("2_4uums")
+animate_smooth = false

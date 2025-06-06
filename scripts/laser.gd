@@ -45,14 +45,9 @@ func handle_collision():
 		
 		if !body is StaticBody2D:
 			body.velocity += dir * 1000;
-			
-		print(body.get_groups());
-		print(body.get_groups().has("wall"));
-			
-		if body.get_groups().has("wall"):
-			print("wall hit!"); 
-			
-			# handle_wall_collision(body);
+
+		if body.get_parent().get_groups().has("wall"):
+			handle_wall_collision(body);
 			
 	shooter_ref.velocity -= dir * 50;
 
