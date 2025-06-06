@@ -85,6 +85,10 @@ func start_wall_building():
 func finish_wall_building():
 	wall_state(true, 1.0)
 	is_building_wall = false
+	
+	if current_wall.scale.x < 4:
+		current_wall.queue_free();
+	
 	current_wall = null
 	wall_start_pos = Vector2.ZERO
 	
@@ -97,9 +101,6 @@ func wall_update():
 	current_wall.scale.x = distance - wall_offset
 	
 	energy = initial_wall_energy - distance / 3;
-	
-	if current_wall.scale.x < 2:
-		current_wall.scale.x = 2
 	
 
 
