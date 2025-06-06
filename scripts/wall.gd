@@ -86,8 +86,6 @@ func split(laser):
 	
 	var cps = get_collision_points(edges, line);
 	
-	print(cps);
-	
 	# math from claude :upside_down_smiley_face:
 	# I don't even know if it works
 	var wall_direction = (end_position - start_position).normalized()

@@ -13,7 +13,7 @@ shader_parameter/wall_color = Vector3(0, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ktk7"]
 resource_local_to_scene = true
-size = Vector2(57.75, 6)
+size = Vector2(50, 6)
 
 [node name="TextureRect" type="TextureRect"]
 z_index = 2

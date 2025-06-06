@@ -12,6 +12,7 @@ var target_ref;
 var target_pos;
 var shooter_ref;
 
+@onready var collision_shape = get_node("Area2D/CollisionShape2D");
 @onready var tween = create_tween()
 
 # more math from Claude. I don't understand where he gets all the info,
@@ -24,10 +25,11 @@ func get_shape(size_scale = 1.0):
 	return shape
 
 func get_edges(size_scale = 1.0):
-	var shape = get_node("Area2D/CollisionShape2D").shape
+	var cs = get_node("Area2D/CollisionShape2D")
+	var shape = cs.shape
 	
 	#scale = scale * size_scale
-	var transform = get_global_transform() 
+	var transform = cs.get_global_transform() 
 	#scale = scale / size_scale
 	
 	var half_size = (shape.size / 2) * size_scale
@@ -93,6 +95,9 @@ func _process(delta: float) -> void:
 	rotation = atan2(dirv.y, dirv.x) - PI / 2;
 	
 	pivot_offset = Vector2(size.x / 2.0, 0.0);
+	
+	collision_shape.shape.size = size
+	collision_shape.position = Vector2(0.0, size.y / 2.0) + pivot_offset;
 	
 	laser_progress += delta;
 	
