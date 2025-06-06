@@ -31,6 +31,7 @@ var is_building_wall = false
 var wall_start_pos = Vector2.ZERO
 var current_wall = null
 var wall_a = 0.2
+var wall_offset = 2.5
 
 @onready var parent = get_node("/root/Node2D"); 
 
@@ -90,7 +91,7 @@ func wall_update():
 	var distance = start_pos.distance_to(position)/6 # this does the same thing. Also, why 6?
 	var angle = start_pos.angle_to_point(global_position)
 	current_wall.rotation = angle
-	current_wall.scale.x = distance
+	current_wall.scale.x = distance - wall_offset
 	
 	energy = initial_wall_energy - distance / 3;
 	
