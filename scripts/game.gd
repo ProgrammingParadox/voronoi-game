@@ -8,6 +8,7 @@ TODO:
 @export var multithread_bar = true;
 @export var bar_scan_step = 100;
 
+@export var HUD_box: Node; # because we don't want to count the part of the screen obscured by the bars and timer
 @onready var bar = get_node("OwnershipBar");
 
 var screen_size: Vector2;
@@ -46,17 +47,23 @@ func build_voronoi_seeds():
 	point_y = temp_point_y;
 	colors  = temp_colors ;
 
-# Called when the node enters the scene tree for the first time.
+var polygon_data;
 func _ready() -> void:
 	resize()
 	
 	get_tree().root.size_changed.connect(resize)
 	
 	get_node("Player 1").color = Global.COLOR_PALETTE[1];
+	
+	var collision_polygon = HUD_box.get_node("CollisionPolygon2D")
+	polygon_data = {
+		"points": collision_polygon.polygon,
+		"transform": collision_polygon.global_transform
+	}
 
 	if multithread_bar:
 		thread = Thread.new();
-		thread.start(calc_bar.bind(bar));
+		thread.start(calc_bar.bind(bar, polygon_data));
 		
 	var ebar1 = get_node("EnergyBar1");
 	ebar1.filled_color   = Global.COLOR_PALETTE[2].darkened(0.4);
@@ -66,15 +73,37 @@ func _ready() -> void:
 	ebar2.filled_color   = Global.COLOR_PALETTE[2].darkened(0.4);
 	ebar2.unfilled_color = Global.COLOR_PALETTE[2].darkened(0.2);
 
-func calc_bar(bar):
+func is_point_in_static_body(point: Vector2, static_body: StaticBody2D) -> bool:
+	var space_state = static_body.get_world_2d().direct_space_state
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = point
+	query.collision_mask = static_body.collision_layer
+	
+	var result = space_state.intersect_point(query)
+	
+	for collision in result:
+		if collision.collider == static_body:
+			return true
+			
+	return false
+
+func calc_bar(bar, polygon_data):
 	var owner_indices = [];
 	var owner_count   = [];
 	
 	var samples = 0;
 	
+	var global_points = PackedVector2Array()
+	for point in polygon_data.points:
+		global_points.append(polygon_data.transform * point)
+
 	var m = max(screen_size.x, screen_size.y);
 	for y in range(0, screen_size.y, bar_scan_step):
 		for x in range(0, screen_size.x, bar_scan_step):
+			# this code is kinda nasty. Abstract to function?
+			if Geometry2D.is_point_in_polygon(Vector2(x, y), global_points):
+				continue;
+			
 			var min_dist = INF;
 			var ind = -1;
 			for i in range(point_x.size()):
@@ -119,9 +148,9 @@ func _process(delta: float) -> void:
 	if multithread_bar:
 		if !thread.is_alive():
 			thread.wait_to_finish();
-			thread.start(calc_bar.bind(bar));
+			thread.start(calc_bar.bind(bar, polygon_data));
 	else:
-		calc_bar(bar)
+		calc_bar(bar, polygon_data)
 		
 func _exit_tree():
 	if multithread_bar:
