@@ -52,7 +52,7 @@ func handle_collision():
 		if body.get_groups().has("wall"):
 			print("wall hit!"); 
 			
-			handle_wall_collision(body);
+			# handle_wall_collision(body);
 			
 	shooter_ref.velocity -= dir * 50;
 
