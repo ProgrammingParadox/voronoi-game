@@ -60,8 +60,8 @@ func plant():
 	parent.add_point(new_seed);
 
 func wall_state(collision: bool, transperancy: float):
-	var collision_shape = current_wall.get_child(0).get_child(0)
-	var sprite = current_wall.get_child(0).get_child(1)
+	var collision_shape = current_wall.get_node("CollisionShape2D");
+	var sprite = current_wall.get_node("Sprite2D");
 	var matter = sprite.get_material()
 	matter.set_shader_parameter("wall_color", Global.COLOR_PALETTE[4])
 	matter.set_shader_parameter("transp", transperancy)
@@ -94,9 +94,12 @@ func finish_wall_building():
 	
 func wall_update():
 	var start_pos = current_wall.global_position
-	# var distance = sqrt(((global_position.y - current_wall.global_position.y)**2)+((global_position.x - current_wall.global_position.x)**2))/6
+	
+	var sprite = current_wall.get_node("Sprite2D");
+	
 	var distance = start_pos.distance_to(position)/6 # this does the same thing. Also, why 6?
 	var angle = start_pos.angle_to_point(global_position)
+	
 	current_wall.rotation = angle
 	current_wall.scale.x = distance - wall_offset
 	
