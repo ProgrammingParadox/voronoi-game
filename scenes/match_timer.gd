@@ -30,5 +30,4 @@ func sec_to_cool(seconds):
 		return str(minutes) + ":" + str(seconds).lpad(2, "0")
 	else:
 		return "0:00"
-		get_tree().change_scene_to_file("res://scenes/home.tscn")
 		

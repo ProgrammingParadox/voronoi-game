@@ -66,12 +66,12 @@ func _ready() -> void:
 		thread.start(calc_bar.bind(bar, polygon_data, references));
 		
 	var ebar1 = get_node("EnergyBar1");
-	ebar1.filled_color   = Global.COLOR_PALETTE[2].darkened(0.4);
-	ebar1.unfilled_color = Global.COLOR_PALETTE[2].darkened(0.2);
+	ebar1.filled_color   = Global.COLOR_PALETTE[2].darkened(0.2);
+	ebar1.unfilled_color = Global.COLOR_PALETTE[2].darkened(0.4);
 	
 	var ebar2 = get_node("EnergyBar2");
-	ebar2.filled_color   = Global.COLOR_PALETTE[2].darkened(0.4);
-	ebar2.unfilled_color = Global.COLOR_PALETTE[2].darkened(0.2);
+	ebar2.filled_color   = Global.COLOR_PALETTE[2].darkened(0.2);
+	ebar2.unfilled_color = Global.COLOR_PALETTE[2].darkened(0.4);
 
 func is_point_in_static_body(point: Vector2, static_body: StaticBody2D) -> bool:
 	var space_state = static_body.get_world_2d().direct_space_state
