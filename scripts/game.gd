@@ -63,7 +63,7 @@ func _ready() -> void:
 
 	if multithread_bar:
 		thread = Thread.new();
-		thread.start(calc_bar.bind(bar, polygon_data));
+		thread.start(calc_bar.bind(bar, polygon_data, references));
 		
 	var ebar1 = get_node("EnergyBar1");
 	ebar1.filled_color   = Global.COLOR_PALETTE[2].darkened(0.4);
@@ -87,7 +87,7 @@ func is_point_in_static_body(point: Vector2, static_body: StaticBody2D) -> bool:
 			
 	return false
 
-func calc_bar(bar, polygon_data):
+func calc_bar(bar, polygon_data, references):
 	var owner_indices = [];
 	var owner_count   = [];
 	
@@ -106,8 +106,8 @@ func calc_bar(bar, polygon_data):
 			
 			var min_dist = INF;
 			var ind = -1;
-			for i in range(point_x.size()):
-				var dist = Vector2(point_x[i], point_y[i]).distance_to(Vector2(x/m, y/m));
+			for i in range(references.size()):
+				var dist = references[i].position.distance_to(Vector2(x, y));
 				
 				if dist < min_dist:
 					ind = i;
@@ -148,9 +148,9 @@ func _process(delta: float) -> void:
 	if multithread_bar:
 		if !thread.is_alive():
 			thread.wait_to_finish();
-			thread.start(calc_bar.bind(bar, polygon_data));
+			thread.start(calc_bar.bind(bar, polygon_data, references));
 	else:
-		calc_bar(bar, polygon_data)
+		calc_bar(bar, polygon_data, references)
 		
 func _exit_tree():
 	if multithread_bar:
