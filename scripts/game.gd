@@ -151,7 +151,6 @@ func _process(delta: float) -> void:
 			thread.start(calc_bar.bind(bar, polygon_data, references));
 	else:
 		calc_bar(bar, polygon_data, references)
-		
 func _exit_tree():
 	if multithread_bar:
 		thread.wait_to_finish()
