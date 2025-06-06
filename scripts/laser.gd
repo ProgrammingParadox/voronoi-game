@@ -28,6 +28,9 @@ func _ready() -> void:
 	tween.tween_callback(lock).set_delay(3);
 	tween.chain().tween_callback(fire).set_delay(1);
 	
+func handle_wall_collision(wall: StaticBody2D):
+	wall.queue_free();
+	
 func handle_collision():
 	var area = get_node("Area2D");
 	
@@ -42,6 +45,14 @@ func handle_collision():
 		
 		if !body is StaticBody2D:
 			body.velocity += dir * 1000;
+			
+		print(body.get_groups());
+		print(body.get_groups().has("wall"));
+			
+		if body.get_groups().has("wall"):
+			print("wall hit!"); 
+			
+			# handle_wall_collision(body);
 			
 	shooter_ref.velocity -= dir * 50;
 

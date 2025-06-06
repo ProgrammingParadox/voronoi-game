@@ -75,6 +75,9 @@ func start_wall_building():
 	current_wall = wall_tscn.instantiate()
 	add_sibling(current_wall)
 	wall_state(false, 0.5)
+	
+	current_wall.add_to_group("wall");
+	
 	current_wall.global_position = wall_start_pos
 	
 	initial_wall_energy = energy;
