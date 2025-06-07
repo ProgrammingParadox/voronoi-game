@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=21 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scripts/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://biyityj50lmyp" path="res://scenes/match_timer.gd" id="10_qy1jj"]
 [ext_resource type="Shader" uid="uid://byq7vk3sb2gvk" path="res://shaders/energybar.gdshader" id="11_mcffj"]
 [ext_resource type="Texture2D" uid="uid://ckbnasckndfn1" path="res://timer_back.svg" id="13_7ua8r"]
+[ext_resource type="PackedScene" uid="uid://punv6n538xjd" path="res://scenes/victory.tscn" id="14_7ua8r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_t88pq")
@@ -147,5 +148,7 @@ position = Vector2(509, -36)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-1, -2)
 polygon = PackedVector2Array(-509, 108, -140, 107, -111, 81, -96, 81, -62, 143, 201, 143, 236, 80, 251, 81, 279, 107, 647, 107, 647, 35, -509, 38)
+
+[node name="Victory" parent="." instance=ExtResource("14_7ua8r")]
 
 [connection signal="timeout" from="MatchTimer/Timer" to="MatchTimer" method="_on_timer_timeout"]

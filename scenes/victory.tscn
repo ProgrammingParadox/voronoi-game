@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://punv6n538xjd"]
+
+[ext_resource type="FontFile" uid="uid://cja1fb78jg8se" path="res://Fonts/futura/Futura Bold font.ttf" id="1_faxov"]
+[ext_resource type="Script" uid="uid://djksc74em35ix" path="res://scenes/victory.gd" id="1_hl81x"]
+[ext_resource type="PackedScene" uid="uid://c14o4bg56yqid" path="res://scenes/home_ui.tscn" id="1_le47n"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hl81x"]
+
+[node name="Victory" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hl81x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 1160.0
+offset_bottom = 660.0
+color = Color(0, 0, 0, 1)
+
+[node name="HomeUI" parent="." instance=ExtResource("1_le47n")]
+layout_mode = 2
+offset_left = 380.0
+offset_top = 300.0
+offset_right = 1540.0
+offset_bottom = 486.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_top = 40.0
+offset_right = 1200.0
+offset_bottom = 220.0
+texture = SubResource("CanvasTexture_hl81x")
+
+[node name="Playerwin_text" type="Label" parent="TextureRect"]
+layout_mode = 2
+offset_left = 360.0
+offset_top = 24.0
+offset_right = 839.0
+offset_bottom = 148.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_faxov")
+theme_override_font_sizes/font_size = 102
+text = "Player 1 wins"
+horizontal_alignment = 1
+vertical_alignment = 1

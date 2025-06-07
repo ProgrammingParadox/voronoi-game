@@ -140,6 +140,7 @@ func calc_bar(bar, polygon_data, references):
 				owner_amount[oind] += owner_count[ind];
 				
 		bar.percent = float(owner_amount[1]) / float(samples)
+		Global.percent = bar.percent
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
