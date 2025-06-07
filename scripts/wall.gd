@@ -10,6 +10,7 @@ var end_position  : Vector2;
 @onready var collision_shape = get_node("StaticBody2D/CollisionShape2D");
 
 @export var laser_hole_scale = 1.5;
+@export var minimum_wall_length = 5.0;
 
 func _ready() -> void:
 	add_to_group("wall")
@@ -111,7 +112,7 @@ func split(laser):
 func _process(delta: float) -> void:
 	if !built:
 		end_position = builder_ref.global_position;
-	elif size.x < 2:
+	elif size.x < minimum_wall_length:
 		queue_free();
 		
 	pivot_offset = Vector2(0.0, size.y / 2.0);
@@ -128,8 +129,6 @@ func _process(delta: float) -> void:
 	#rotation = start_position.angle_to(end_position);
 	
 	size.x = start_position.distance_to(end_position);
-	
-	# var collision_shape = get_node("StaticBody2D/CollisionShape2D");
 	
 	collision_shape.shape.size = size
 	collision_shape.position = Vector2(size.x / 2.0, 0.0) + pivot_offset;
