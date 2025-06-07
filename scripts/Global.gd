@@ -13,6 +13,13 @@ enum SCENES {
 	SETTINGS,
 	BATTLE
 }
+var SCENE = SCENES.HOME;
+
+var SCENE_TSCN = {
+	SCENES.HOME: "res://scenes/home.tscn",
+	SCENES.CHAR_SELECT: "res://scenes/char_select.tscn",
+	SCENES.BATTLE: "res://scenes/Game.tscn",
+}
 
 var COLOR_PALETTE: Array[Color] = [
 	Color("#b3fffc"),
@@ -21,3 +28,7 @@ var COLOR_PALETTE: Array[Color] = [
 	Color("#ff4242"),
 	Color("#f2ff49")
 ];
+
+func set_scene(scene):
+	SCENE = scene;
+	get_tree().change_scene_to_file(SCENE_TSCN[scene])

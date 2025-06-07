@@ -26,4 +26,4 @@ func _on_resume_pressed() -> void:
 	toggle_pause()
 
 func _on_quit_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/home.tscn");
+	Global.set_scene(Global.SCENES.HOME);

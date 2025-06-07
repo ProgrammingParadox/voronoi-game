@@ -35,4 +35,6 @@ func _on_settings_mouse_entered() -> void:
 func _on_play_pressed() -> void:
 	Global.game_time = original_game_time
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/Game.tscn")
+	#get_tree().change_scene_to_file("res://scenes/Game.tscn")
+	
+	Global.set_scene(Global.SCENES.BATTLE);
