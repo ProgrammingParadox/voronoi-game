@@ -11,6 +11,7 @@ var end_position  : Vector2;
 
 @export var laser_hole_scale = 1.5;
 @export var minimum_wall_length = 5.0;
+@export var distance_to_builder = 20.0;
 
 func _ready() -> void:
 	add_to_group("wall")
@@ -111,10 +112,10 @@ func split(laser):
 
 func _process(delta: float) -> void:
 	if !built:
-		end_position = builder_ref.global_position;
+		end_position = builder_ref.position - (start_position.direction_to(builder_ref.position) * distance_to_builder);
 	elif size.x < minimum_wall_length:
 		queue_free();
-		
+	
 	pivot_offset = Vector2(0.0, size.y / 2.0);
 	
 	position = start_position;

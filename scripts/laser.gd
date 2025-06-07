@@ -28,9 +28,7 @@ func get_edges(size_scale = 1.0):
 	var cs = get_node("Area2D/CollisionShape2D")
 	var shape = cs.shape
 	
-	#scale = scale * size_scale
 	var transform = cs.get_global_transform() 
-	#scale = scale / size_scale
 	
 	var half_size = (shape.size / 2) * size_scale
 	var corners = [
@@ -113,5 +111,3 @@ func _process(delta: float) -> void:
 	
 	if state == 2:
 		handle_collision()
-	
-	# print(laser_progress);
