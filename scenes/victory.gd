@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	if Global.game_time <= 0 and not game_over:
+	if Global.game_time < 0 and not game_over:
 		game_over = not game_over
 		show()
 		game_end()
@@ -35,6 +35,6 @@ func game_end():
 	var tween = get_tree().create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(gray, "modulate:a", 0.6, 0.4)
-	tween.tween_property(win_panel, "position", Vector2(0, 41), 0.8).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(win_panel, "position", Vector2(0, 41), 0.8).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(buttons, "modulate:a", 1, 1.0)
 	
