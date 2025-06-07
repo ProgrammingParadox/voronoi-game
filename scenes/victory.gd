@@ -24,14 +24,12 @@ func _process(delta: float) -> void:
 		game_end()
 		
 		
-
-
 func game_end():
 	get_tree().paused = true
 	if Global.percent < 0.5:
-		text.text = "Player 1 Wins!"
-	elif Global.percent > 0.5:
 		text.text = "Player 2 Wins!"
+	elif Global.percent > 0.5:
+		text.text = "Player 1 Wins!"
 	else:
 		text.text = "Tie!"
 	var tween = get_tree().create_tween()

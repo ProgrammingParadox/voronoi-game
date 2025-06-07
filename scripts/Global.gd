@@ -1,6 +1,6 @@
 extends Node;
 
-var percent := 0
+var percent := 0.0
 
 var game_time := 5
 

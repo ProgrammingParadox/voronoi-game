@@ -25,9 +25,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="HomeUI" parent="." instance=ExtResource("1_le47n")]
 layout_mode = 2
-offset_left = 380.0
+offset_left = 420.0
 offset_top = 300.0
-offset_right = 1540.0
+offset_right = 1580.0
 offset_bottom = 486.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
