@@ -6,6 +6,7 @@ func set_game_time(seconds):
 	
 func start_game():
 	get_tree().paused = false
+	Global.curr_game_time = Global.game_time
 	Global.set_scene(Global.SCENES.BATTLE);
 
 # Called when the node enters the scene tree for the first time.

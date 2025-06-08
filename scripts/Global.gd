@@ -3,6 +3,7 @@ extends Node;
 var percent := 0.0
 
 var game_time := 30
+var curr_game_time : int = 30
 
 var paused = false
 

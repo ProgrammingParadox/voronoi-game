@@ -26,4 +26,6 @@ func _on_resume_pressed() -> void:
 	toggle_pause()
 
 func _on_quit_pressed() -> void:
-	Global.set_scene(Global.SCENES.HOME);
+	get_tree().paused = false
+	Global.set_scene(Global.SCENES.CHAR_SELECT);
+	

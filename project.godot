@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ionorov"
-run/main_scene="uid://enm4b7xymu2j"
+run/main_scene="uid://bduvxbxi626xv"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

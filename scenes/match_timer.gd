@@ -13,13 +13,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = sec_to_cool(Global.game_time)
+	text = sec_to_cool(Global.curr_game_time)
 	
 	screen_size = get_viewport_rect().size
 	position.x = (screen_size.x / 2.0) - (size.x / 2.0)
 
 func _on_timer_timeout() -> void:
-	Global.game_time -= 1
+	Global.curr_game_time -= 1
 
 func sec_to_cool(seconds):
 	var minutes := 0

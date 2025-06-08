@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	if Global.game_time < 0 and not game_over:
+	if Global.curr_game_time < 0 and not game_over:
 		game_over = not game_over
 		show()
 		game_end()
