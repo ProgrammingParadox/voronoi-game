@@ -58,7 +58,7 @@ func fire():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	tween.tween_callback(lock).set_delay(3);
+	tween.tween_callback(lock).set_delay(1);
 	tween.chain().tween_callback(fire).set_delay(1);
 	
 func handle_collision():

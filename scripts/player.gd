@@ -207,17 +207,17 @@ func _physics_process(delta: float) -> void:
 	if is_building_wall:
 		wall_update()
 	
-	if Input.is_action_just_pressed(controls_plant) && energy > 20:
+	if Input.is_action_just_pressed(controls_plant) && energy > 80:
 		plant()
-		energy -= 20
+		energy -= 80
 	
 	if Input.is_action_just_pressed(controls_melee) && energy > 10:
 		dash(delta)
 		energy -= 10
 		
-	if Input.is_action_just_pressed(controls_ranged) && energy > 80:
+	if Input.is_action_just_pressed(controls_ranged) && energy > 50:
 		shoot()
-		energy -= 80
+		energy -= 50
 		
 		
 
