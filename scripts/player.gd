@@ -112,7 +112,7 @@ func wall_update():
 	#current_wall.rotation = angle
 	#current_wall.scale.x = distance - wall_offset
 	
-	energy = initial_wall_energy - distance / 3;
+	energy = initial_wall_energy - distance / 50;
 	
 
 
