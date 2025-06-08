@@ -69,7 +69,7 @@ func plant():
 
 var initial_wall_energy = 0.0; # the energy the player has when they start building the wall
 func start_wall_building():
-	energy -= 20
+	energy -= 15
 	is_building_wall = true
 	wall_start_pos = global_position
 	
@@ -198,7 +198,7 @@ func _physics_process(delta: float) -> void:
 	if energy >= max_energy:
 		energy = max_energy
 		
-	if Input.is_action_just_pressed(build_wall) and energy > 20 or (is_building_wall and (energy <= 0 or Input.is_action_just_pressed(build_wall))):
+	if Input.is_action_just_pressed(build_wall) and energy > 40 or (is_building_wall and (energy <= 0 or Input.is_action_just_pressed(build_wall))):
 		if not is_building_wall:
 			start_wall_building()
 		else:
