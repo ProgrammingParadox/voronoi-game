@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 	hide()
 	gray.modulate.a = 0.0
-	win_panel.size.x = screen_size.x
+	win_panel.size.x = screen_size.x + 200
 	
 	buttons.modulate.a = 0
 	win_panel.position = Vector2(1300, 41)
@@ -34,7 +34,7 @@ func game_end():
 		text.text = "Tie!"
 	var tween = get_tree().create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(gray, "modulate:a", 0.6, 0.4)
-	tween.tween_property(win_panel, "position", Vector2(0, 41), 0.8).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(gray, "modulate:a", 0.7, 0.4)
+	tween.tween_property(win_panel, "position", Vector2(-27, 41), 0.8).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(buttons, "modulate:a", 1, 1.0)
 	
