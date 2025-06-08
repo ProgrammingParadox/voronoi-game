@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhp5xw5nom5h"]
+[gd_scene load_steps=12 format=3 uid="uid://bhp5xw5nom5h"]
 
 [ext_resource type="Shader" uid="uid://3p6fu0ir4lwl" path="res://player.gdshader" id="1_i3pqv"]
 [ext_resource type="Script" uid="uid://btcn8r5ytt6yn" path="res://scripts/player.gd" id="1_onrkg"]
@@ -26,6 +26,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
 radius = 15.1327
 
+[sub_resource type="Curve" id="Curve_tuyoq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0689013, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_fjrip"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.13594, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
 motion_mode = 1
@@ -48,3 +57,25 @@ sprite_frames = SubResource("SpriteFrames_0hol4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0hol4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1
+amount = 6
+lifetime_randomness = 0.45
+emission_shape = 2
+emission_sphere_radius = 13.67
+gravity = Vector2(0, 0)
+initial_velocity_min = 61.82
+initial_velocity_max = 61.82
+angular_velocity_min = -206.84
+angular_velocity_max = 188.51
+orbit_velocity_min = -0.5
+orbit_velocity_max = 0.5
+radial_accel_min = 5.09
+radial_accel_max = 8.36
+angle_min = -31.4
+angle_max = 83.8
+scale_amount_min = 0.0
+scale_amount_max = 13.73
+scale_amount_curve = SubResource("Curve_tuyoq")
+anim_speed_curve = SubResource("Curve_fjrip")

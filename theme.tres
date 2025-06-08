@@ -88,6 +88,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [resource]
+default_font_size = 32
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_e1x85")
 Button/styles/disabled = SubResource("StyleBoxEmpty_e1x85")

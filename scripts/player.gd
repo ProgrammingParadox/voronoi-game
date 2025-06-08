@@ -194,6 +194,10 @@ func _physics_process(delta: float) -> void:
 	
 	velocity *= 0.9;
 	
+	get_node("CPUParticles2D").amount = max(int(velocity.length() * 0.01), 6);
+	print(get_node("CPUParticles2D").amount);
+	print(get_node("CPUParticles2D").emitting);
+	
 	energy += delta * energy_regen;
 	if energy >= max_energy:
 		energy = max_energy

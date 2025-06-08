@@ -76,6 +76,7 @@ text = "Start!"
 flat = true
 
 [node name="ColorRect" type="ColorRect" parent="CenterContainer/VBoxContainer/Button"]
+visible = false
 material = SubResource("ShaderMaterial_pepy4")
 clip_contents = true
 layout_mode = 1

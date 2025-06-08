@@ -18,10 +18,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/Global.gd"
+flowerwall_crt="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
 
 [display]
 
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/flowerwall_postprocess/flowerwall_postprocess/plugin.cfg", "res://addons/flowerwall_postprocess/plugin.cfg")
 
 [input]
 

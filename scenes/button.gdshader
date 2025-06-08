@@ -1,5 +1,5 @@
 shader_type canvas_item;
-render_mode blend_premul_alpha;
+render_mode unshaded;
 
 uniform float Line_Smoothness : hint_range(0, 0.1) = 0.045;
 uniform float Line_Width : hint_range(0, 0.2) = 0.09;
