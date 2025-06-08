@@ -54,6 +54,7 @@ text = "Game Time"
 label_settings = SubResource("LabelSettings_u0oh2")
 
 [node name="SpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme = ExtResource("2_11wwc")
 min_value = 15.0
