@@ -194,9 +194,13 @@ func _physics_process(delta: float) -> void:
 	
 	velocity *= 0.9;
 	
-	get_node("CPUParticles2D").amount = max(int(velocity.length() * 0.01), 6);
-	print(get_node("CPUParticles2D").amount);
-	print(get_node("CPUParticles2D").emitting);
+	get_node("CPUParticles2D").color = color.darkened(0.4);
+	
+	get_node("CPUParticles2D").set_param_min(CPUParticles2D.Parameter.PARAM_INITIAL_LINEAR_VELOCITY, 10 + (velocity.length() * 0.05));
+	get_node("CPUParticles2D").set_param_max(CPUParticles2D.Parameter.PARAM_INITIAL_LINEAR_VELOCITY, 10 + (velocity.length() * 0.06));
+	
+	get_node("CPUParticles2D").set_param_min(CPUParticles2D.Parameter.PARAM_ANGULAR_VELOCITY, 10 + (velocity.length() * 0.05));
+	get_node("CPUParticles2D").set_param_max(CPUParticles2D.Parameter.PARAM_ANGULAR_VELOCITY, 10 + (velocity.length() * 0.06));
 	
 	energy += delta * energy_regen;
 	if energy >= max_energy:
