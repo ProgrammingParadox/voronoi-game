@@ -1,14 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://bduvxbxi626xv"]
+[gd_scene load_steps=8 format=3 uid="uid://bduvxbxi626xv"]
 
 [ext_resource type="Script" uid="uid://lfqoo6bvypmf" path="res://scenes/char_select.gd" id="1_11wwc"]
 [ext_resource type="FontFile" uid="uid://dbyh4tudohoa7" path="res://Fonts/futura/futur.ttf" id="1_qjq5y"]
 [ext_resource type="Theme" uid="uid://dbprchho5o7fc" path="res://theme.tres" id="2_11wwc"]
+[ext_resource type="Shader" uid="uid://b2j0spv5kqnyv" path="res://scenes/button.gdshader" id="4_u0oh2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u0oh2"]
 font = ExtResource("1_qjq5y")
 font_size = 32
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pepy4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pepy4"]
+shader = ExtResource("4_u0oh2")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.18
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = -25.698
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.8
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -58,6 +72,18 @@ layout_mode = 2
 theme = ExtResource("2_11wwc")
 theme_type_variation = &"FlatButton"
 text = "Start!"
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/VBoxContainer/Button"]
+material = SubResource("ShaderMaterial_pepy4")
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/SpinBox" to="." method="set_game_time"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="start_game"]
