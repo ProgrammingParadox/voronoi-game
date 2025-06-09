@@ -1,13 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=22 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scripts/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
-[ext_resource type="Script" uid="uid://cupq1bn5txtc8" path="res://scenes/music.gd" id="2_45i86"]
 [ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="2_r0x5m"]
+[ext_resource type="PackedScene" uid="uid://bnataohg208gc" path="res://scenes/music.tscn" id="2_r7sob"]
 [ext_resource type="PackedScene" uid="uid://bhp5xw5nom5h" path="res://scenes/player.tscn" id="4_78awf"]
 [ext_resource type="PackedScene" uid="uid://b6v30hgpnovxm" path="res://scenes/ui.tscn" id="6_kiw3p"]
 [ext_resource type="Shader" uid="uid://cfyluk3a80u1g" path="res://ownership_bar.gdshader" id="7_400sg"]
-[ext_resource type="AudioStream" uid="uid://ypvh0lgyo0j7" path="res://music/menu.mp3" id="7_sv1m6"]
 [ext_resource type="Script" uid="uid://bxq838xuvshxn" path="res://scripts/ownership_bar.gd" id="8_g4kob"]
 [ext_resource type="FontFile" uid="uid://dbyh4tudohoa7" path="res://Fonts/futura/futur.ttf" id="9_2rd6h"]
 [ext_resource type="FontFile" uid="uid://cja1fb78jg8se" path="res://Fonts/futura/Futura Bold font.ttf" id="9_qy1jj"]
@@ -16,10 +15,6 @@
 [ext_resource type="Shader" uid="uid://byq7vk3sb2gvk" path="res://shaders/energybar.gdshader" id="11_mcffj"]
 [ext_resource type="Texture2D" uid="uid://ckbnasckndfn1" path="res://timer_back.svg" id="13_7ua8r"]
 [ext_resource type="PackedScene" uid="uid://punv6n538xjd" path="res://scenes/victory.tscn" id="14_7ua8r"]
-[ext_resource type="AudioStream" uid="uid://d4mvubr3kvkio" path="res://music/battle main.mp3" id="15_vjgi4"]
-[ext_resource type="AudioStream" uid="uid://dcr87chmi8fym" path="res://music/battle start.mp3" id="16_kyk2p"]
-[ext_resource type="AudioStream" uid="uid://cqwpyycwmbfoa" path="res://music/battle end.mp3" id="17_45i86"]
-[ext_resource type="AudioStream" uid="uid://gnl2h43rkuux" path="res://music/battle over.mp3" id="18_kyk2p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_t88pq")
@@ -67,31 +62,7 @@ script = ExtResource("1_s0nni")
 multithread_bar = false
 HUD_box = NodePath("StaticBody2D")
 
-[node name="music" type="Node" parent="."]
-process_mode = 3
-script = ExtResource("2_45i86")
-
-[node name="loop" type="AudioStreamPlayer" parent="music"]
-process_mode = 3
-stream = ExtResource("15_vjgi4")
-parameters/looping = true
-
-[node name="start" type="AudioStreamPlayer" parent="music"]
-process_mode = 3
-stream = ExtResource("16_kyk2p")
-
-[node name="end" type="AudioStreamPlayer" parent="music"]
-process_mode = 3
-stream = ExtResource("17_45i86")
-
-[node name="over" type="AudioStreamPlayer" parent="music"]
-process_mode = 3
-stream = ExtResource("18_kyk2p")
-parameters/looping = true
-
-[node name="menu" type="AudioStreamPlayer" parent="music"]
-stream = ExtResource("7_sv1m6")
-parameters/looping = true
+[node name="music" parent="." instance=ExtResource("2_r7sob")]
 
 [node name="Voronoi" type="Sprite2D" parent="."]
 z_index = -1

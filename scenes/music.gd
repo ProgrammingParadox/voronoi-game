@@ -27,8 +27,6 @@ var cur = audio.START;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var ca = audio_players[cur]; # current audio
-	if !ca.playing:
-		ca.play(0.0);
 		
 func set_cur(a: audio):
 	audio_players[cur].stop();
@@ -38,6 +36,8 @@ func set_cur(a: audio):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var ca = audio_players[cur]; # current audio
+	if !ca.playing:
+		ca.play(0.0);
 	
 	# there's probably a better way to do this...
 	if !ca.playing and cur == audio.START:

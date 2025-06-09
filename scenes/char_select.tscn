@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bduvxbxi626xv"]
+[gd_scene load_steps=9 format=3 uid="uid://bduvxbxi626xv"]
 
 [ext_resource type="Script" uid="uid://lfqoo6bvypmf" path="res://scenes/char_select.gd" id="1_11wwc"]
 [ext_resource type="FontFile" uid="uid://dbyh4tudohoa7" path="res://Fonts/futura/futur.ttf" id="1_qjq5y"]
 [ext_resource type="Theme" uid="uid://dbprchho5o7fc" path="res://theme.tres" id="2_11wwc"]
 [ext_resource type="Shader" uid="uid://b2j0spv5kqnyv" path="res://scenes/button.gdshader" id="4_u0oh2"]
+[ext_resource type="PackedScene" uid="uid://bnataohg208gc" path="res://scenes/music.tscn" id="5_pepy4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u0oh2"]
 font = ExtResource("1_qjq5y")
@@ -86,6 +87,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="music" parent="." instance=ExtResource("5_pepy4")]
 
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/SpinBox" to="." method="set_game_time"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="start_game"]

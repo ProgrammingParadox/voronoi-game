@@ -72,6 +72,9 @@ func _ready() -> void:
 	var ebar2 = get_node("EnergyBar2");
 	ebar2.filled_color   = Global.COLOR_PALETTE[2].darkened(0.2);
 	ebar2.unfilled_color = Global.COLOR_PALETTE[2].darkened(0.4);
+	
+	var m = get_node("music")
+	m.set_cur(m.audio.START);
 
 func is_point_in_static_body(point: Vector2, static_body: StaticBody2D) -> bool:
 	var space_state = static_body.get_world_2d().direct_space_state

@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnataohg208gc"]
+
+[ext_resource type="Script" uid="uid://cupq1bn5txtc8" path="res://scenes/music.gd" id="1_mobtd"]
+[ext_resource type="AudioStream" uid="uid://d4mvubr3kvkio" path="res://music/battle main.mp3" id="2_keplp"]
+[ext_resource type="AudioStream" uid="uid://dcr87chmi8fym" path="res://music/battle start.mp3" id="3_d6bcn"]
+[ext_resource type="AudioStream" uid="uid://cqwpyycwmbfoa" path="res://music/battle end.mp3" id="4_okdju"]
+[ext_resource type="AudioStream" uid="uid://gnl2h43rkuux" path="res://music/battle over.mp3" id="5_qntvw"]
+[ext_resource type="AudioStream" uid="uid://ypvh0lgyo0j7" path="res://music/menu.mp3" id="6_3dw7u"]
+
+[node name="music" type="Node"]
+process_mode = 3
+script = ExtResource("1_mobtd")
+
+[node name="loop" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("2_keplp")
+parameters/looping = true
+
+[node name="start" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_d6bcn")
+
+[node name="end" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_okdju")
+
+[node name="over" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_qntvw")
+parameters/looping = true
+
+[node name="menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3dw7u")
+parameters/looping = true
