@@ -75,18 +75,33 @@ func build_wall(wall_line):
 func split(laser):
 	var line = [start_position, end_position]
 	
+	var area = get_node("StaticBody2D");
+	
+	var laser_area = laser.get_node("Area2D");
+	var bodies = laser_area.get_overlapping_bodies();
+	print("bodies ", bodies.find(area), " ", bodies);
+	
+	for p in line:
+		print(p, " ", !point_in_rectangle(p, laser.get_shape(laser_hole_scale), laser.get_global_transform()));
+	
 	# check to see if whole wall is inside the laser
 	var free_points = line.filter(func (x): return !point_in_rectangle(x, laser.get_shape(laser_hole_scale), laser.get_global_transform()))
 		
 	if free_points.size() == 0:	
+		print("whole laser!!");
+		
 		queue_free();
 			
 		return;
+		
+	print("free points:", free_points);
 	
 	# otherwise, cut 'er up
 	var edges = laser.get_edges(laser_hole_scale)
 	
 	var cps = get_collision_points(edges, line);
+	
+	print("collision points: ", cps);
 	
 	# math from claude :upside_down_smiley_face:
 	# I don't even know if it works
@@ -104,11 +119,17 @@ func split(laser):
 		build_wall(wall_line_a);
 		build_wall(wall_line_b);
 		
+		print("split into two lines ", wall_line_a, " ", wall_line_b); 
+		
 		queue_free();
 	elif cps.size() == 1:
 		build_wall([free_points[0], cps[0]]);
 		
+		print("split into one lines ", [free_points[0], cps[0]]); 
+		
 		queue_free();
+	#elif cps.size() == 0:
+		#queue_free();
 
 func _process(delta: float) -> void:
 	if !built:

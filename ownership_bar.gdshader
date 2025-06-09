@@ -13,7 +13,7 @@ void fragment() {
 	//if(direction == 1){
 		//p = 1.0 - percent;
 	//}
-	
+
 	if(1.0 - UV.y < bottom_border_size){
 		COLOR = vec4(percent < UV.x ? unfilled_color * 0.6 : filled_color * 0.6);
 

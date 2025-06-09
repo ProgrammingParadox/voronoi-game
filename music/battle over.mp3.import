@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gnl2h43rkuux"
+path="res://.godot/imported/battle over.mp3-d955bb30693baa5740a4d1dd0a2e3eaf.mp3str"
+
+[deps]
+
+source_file="res://music/battle over.mp3"
+dest_files=["res://.godot/imported/battle over.mp3-d955bb30693baa5740a4d1dd0a2e3eaf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

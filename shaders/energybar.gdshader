@@ -17,6 +17,6 @@ void fragment() {
 	} else {
 		COLOR = vec4(percent < UV.x ? unfilled_color : filled_color);
 	}
-	
+
 	if(UV.x > shear) COLOR.a = ((UV.x - shear) * (11.0) + UV.y) < sqrt(shear) ? COLOR.a : 0.0;
 }

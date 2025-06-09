@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=26 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scripts/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
+[ext_resource type="Script" uid="uid://cupq1bn5txtc8" path="res://scenes/music.gd" id="2_45i86"]
 [ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="2_r0x5m"]
 [ext_resource type="PackedScene" uid="uid://bhp5xw5nom5h" path="res://scenes/player.tscn" id="4_78awf"]
 [ext_resource type="PackedScene" uid="uid://b6v30hgpnovxm" path="res://scenes/ui.tscn" id="6_kiw3p"]
@@ -14,6 +15,10 @@
 [ext_resource type="Shader" uid="uid://byq7vk3sb2gvk" path="res://shaders/energybar.gdshader" id="11_mcffj"]
 [ext_resource type="Texture2D" uid="uid://ckbnasckndfn1" path="res://timer_back.svg" id="13_7ua8r"]
 [ext_resource type="PackedScene" uid="uid://punv6n538xjd" path="res://scenes/victory.tscn" id="14_7ua8r"]
+[ext_resource type="AudioStream" uid="uid://d4mvubr3kvkio" path="res://music/battle main.mp3" id="15_vjgi4"]
+[ext_resource type="AudioStream" uid="uid://dcr87chmi8fym" path="res://music/battle start.mp3" id="16_kyk2p"]
+[ext_resource type="AudioStream" uid="uid://cqwpyycwmbfoa" path="res://music/battle end.mp3" id="17_45i86"]
+[ext_resource type="AudioStream" uid="uid://gnl2h43rkuux" path="res://music/battle over.mp3" id="18_kyk2p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_t88pq")
@@ -60,6 +65,27 @@ shader_parameter/bottom_border_size = 0.001
 script = ExtResource("1_s0nni")
 multithread_bar = false
 HUD_box = NodePath("StaticBody2D")
+
+[node name="music" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_45i86")
+
+[node name="loop" type="AudioStreamPlayer" parent="music"]
+process_mode = 3
+stream = ExtResource("15_vjgi4")
+
+[node name="start" type="AudioStreamPlayer" parent="music"]
+process_mode = 3
+stream = ExtResource("16_kyk2p")
+
+[node name="end" type="AudioStreamPlayer" parent="music"]
+process_mode = 3
+stream = ExtResource("17_45i86")
+
+[node name="over" type="AudioStreamPlayer" parent="music"]
+process_mode = 3
+stream = ExtResource("18_kyk2p")
+parameters/looping = true
 
 [node name="Voronoi" type="Sprite2D" parent="."]
 z_index = -1
