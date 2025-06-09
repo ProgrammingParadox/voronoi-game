@@ -74,6 +74,7 @@ script = ExtResource("2_45i86")
 [node name="loop" type="AudioStreamPlayer" parent="music"]
 process_mode = 3
 stream = ExtResource("15_vjgi4")
+parameters/looping = true
 
 [node name="start" type="AudioStreamPlayer" parent="music"]
 process_mode = 3
