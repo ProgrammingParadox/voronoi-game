@@ -2,7 +2,6 @@ extends MarginContainer
 
 @onready var pointer =  $Pointer
 @onready var resume =   $VBoxContainer/Resume
-@onready var settings = $VBoxContainer/Settings
 @onready var quit =     $VBoxContainer/Quit
 @onready var buttons = $VBoxContainer.get_children()
 var timer = 0.0
@@ -26,8 +25,5 @@ func _process(delta: float) -> void:
 func _on_resume_mouse_entered() -> void:
 	curr_selection = 0
 
-func _on_settings_mouse_entered() -> void:
-	curr_selection = 1
-
 func _on_quit_mouse_entered() -> void:
-	curr_selection = 2
+	curr_selection = 1

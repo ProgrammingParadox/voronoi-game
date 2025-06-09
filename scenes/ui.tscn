@@ -61,19 +61,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
 text = "Resume"
 alignment = 0
 
-[node name="Settings" type="Button" parent="PauseButtons/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_fyqef")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fyqef")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_27fn8")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ibotj")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_m6e0p")
-text = "Settings"
-alignment = 0
-
 [node name="Quit" type="Button" parent="PauseButtons/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -95,7 +82,5 @@ text = ">"
 
 [connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Resume" to="PauseButtons" method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="PauseButtons/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Settings" to="PauseButtons" method="_on_settings_mouse_entered"]
-[connection signal="pressed" from="PauseButtons/VBoxContainer/Settings" to="PauseButtons" method="_on_settings_pressed"]
 [connection signal="mouse_entered" from="PauseButtons/VBoxContainer/Quit" to="PauseButtons" method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="PauseButtons/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
