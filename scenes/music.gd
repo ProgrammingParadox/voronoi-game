@@ -6,19 +6,22 @@ extends Node
 @onready var audio_end_length = audio_end.get_stream().get_length();
 
 @onready var audio_over = get_node("over");
+@onready var audio_menu = get_node("menu");
 
 enum audio {
 	START,
 	LOOP,
 	END,
 	OVER,
+	MENU,
 }
 var cur = audio.START;
 @onready var audio_players = {
 	audio.START: audio_start,
 	audio.LOOP: audio_loop,
 	audio.END: audio_end,
-	audio.OVER: audio_over
+	audio.OVER: audio_over,
+	audio.MENU: audio_menu,
 };
 
 # Called when the node enters the scene tree for the first time.
@@ -44,4 +47,4 @@ func _process(delta: float) -> void:
 		set_cur(audio.END);
 		
 	if Global.curr_game_time < 0 and cur == audio.END:
-		set_cur(audio.OVER);
+		set_cur(audio.MENU);

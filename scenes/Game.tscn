@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://og27vauvhwyp"]
+[gd_scene load_steps=27 format=3 uid="uid://og27vauvhwyp"]
 
 [ext_resource type="Script" uid="uid://bfiqymei23qyp" path="res://scripts/game.gd" id="1_s0nni"]
 [ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="1_t88pq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bhp5xw5nom5h" path="res://scenes/player.tscn" id="4_78awf"]
 [ext_resource type="PackedScene" uid="uid://b6v30hgpnovxm" path="res://scenes/ui.tscn" id="6_kiw3p"]
 [ext_resource type="Shader" uid="uid://cfyluk3a80u1g" path="res://ownership_bar.gdshader" id="7_400sg"]
+[ext_resource type="AudioStream" uid="uid://ypvh0lgyo0j7" path="res://music/menu.mp3" id="7_sv1m6"]
 [ext_resource type="Script" uid="uid://bxq838xuvshxn" path="res://scripts/ownership_bar.gd" id="8_g4kob"]
 [ext_resource type="FontFile" uid="uid://dbyh4tudohoa7" path="res://Fonts/futura/futur.ttf" id="9_2rd6h"]
 [ext_resource type="FontFile" uid="uid://cja1fb78jg8se" path="res://Fonts/futura/Futura Bold font.ttf" id="9_qy1jj"]
@@ -86,6 +87,9 @@ stream = ExtResource("17_45i86")
 process_mode = 3
 stream = ExtResource("18_kyk2p")
 parameters/looping = true
+
+[node name="menu" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("7_sv1m6")
 
 [node name="Voronoi" type="Sprite2D" parent="."]
 z_index = -1
