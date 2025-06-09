@@ -1,14 +1,36 @@
-[gd_scene load_steps=10 format=3 uid="uid://bduvxbxi626xv"]
+[gd_scene load_steps=15 format=3 uid="uid://bduvxbxi626xv"]
 
 [ext_resource type="Script" uid="uid://lfqoo6bvypmf" path="res://scenes/char_select.gd" id="1_11wwc"]
 [ext_resource type="FontFile" uid="uid://dbyh4tudohoa7" path="res://Fonts/futura/futur.ttf" id="1_qjq5y"]
 [ext_resource type="Theme" uid="uid://dbprchho5o7fc" path="res://theme.tres" id="2_11wwc"]
+[ext_resource type="PackedScene" uid="uid://cdjeq7ithvm6g" path="res://scenes/seed.tscn" id="2_dgebt"]
+[ext_resource type="Shader" uid="uid://31ww3j04rdyb" path="res://voronoi.gdshader" id="2_lcdbo"]
+[ext_resource type="Script" uid="uid://chnkqismhkqxo" path="res://scripts/voronoi.gd" id="3_dgebt"]
 [ext_resource type="Shader" uid="uid://b2j0spv5kqnyv" path="res://scenes/button.gdshader" id="4_u0oh2"]
 [ext_resource type="PackedScene" uid="uid://bnataohg208gc" path="res://scenes/music.tscn" id="5_pepy4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kqyn"]
+shader = ExtResource("2_lcdbo")
+shader_parameter/player_x = 0.0
+shader_parameter/player_y = 0.0
+shader_parameter/points = 100
+shader_parameter/p_x = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/p_y = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/colors = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pepy4"]
 font_size = 140
 shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgebt"]
+bg_color = Color(0.6, 0.6, 0.6, 0.537255)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.764706)
+shadow_size = 1
 shadow_offset = Vector2(-10, 10)
 
 [sub_resource type="LabelSettings" id="LabelSettings_u0oh2"]
@@ -40,43 +62,79 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_11wwc")
+seed_tscn = ExtResource("2_dgebt")
+
+[node name="Voronoi" type="Sprite2D" parent="."]
+process_mode = 3
+z_index = -1
+texture_filter = 4
+material = SubResource("ShaderMaterial_5kqyn")
+centered = false
+region_rect = Rect2(0, 0, 100, 100)
+script = ExtResource("3_dgebt")
 
 [node name="music" parent="." instance=ExtResource("5_pepy4")]
 
-[node name="CenterContainer2" type="CenterContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 285.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer2"]
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer2"]
+z_index = 4
 layout_mode = 2
 theme = ExtResource("2_11wwc")
 text = "IONOROV"
 label_settings = SubResource("LabelSettings_pepy4")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+z_index = 7
 layout_mode = 2
-offset_top = 258.0
-offset_right = 1152.0
-offset_bottom = 390.0
+
+[node name="Panel" type="Panel" parent="VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dgebt")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -86.0
+offset_right = 222.0
+offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer/Panel/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Game Time"
 label_settings = SubResource("LabelSettings_u0oh2")
 
-[node name="SpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("2_11wwc")
@@ -86,19 +144,18 @@ value = 30.0
 suffix = "secs"
 custom_arrow_step = 1.0
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/CenterContainer/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pepy4")
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/CenterContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_11wwc")
 theme_type_variation = &"FlatButton"
 text = "Start!"
-flat = true
 
-[node name="ColorRect" type="ColorRect" parent="CenterContainer/VBoxContainer/Button"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/CenterContainer/Panel/MarginContainer/VBoxContainer/Button"]
 visible = false
 material = SubResource("ShaderMaterial_pepy4")
 clip_contents = true
@@ -110,5 +167,5 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/SpinBox" to="." method="set_game_time"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="start_game"]
+[connection signal="value_changed" from="VBoxContainer/CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SpinBox" to="." method="set_game_time"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/Panel/MarginContainer/VBoxContainer/Button" to="." method="start_game"]
