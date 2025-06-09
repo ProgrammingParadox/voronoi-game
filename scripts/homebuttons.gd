@@ -1,11 +1,13 @@
-extends MarginContainer
+extends CenterContainer
 
 @onready var pointer =  $Homepointer
-@onready var play =     $VBoxContainer/Play
-@onready var buttons =  $VBoxContainer.get_children()
+@onready var play =     $Play
+@onready var buttons =  [play]
+@onready var pos = buttons.map(func(x): return x.global_position);
 var timer = 0.0
 var curr_selection := 0
 var original_game_time = Global.game_time
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -17,13 +19,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timer += 0.1
-	pointer.global_position = Vector2(430 + 5 * sin(timer*0.8) ,buttons[curr_selection].global_position.y)
+	pointer.position = pos[curr_selection] + Vector2(-50 + 5 * sin(timer*0.8), 0)
 	
-	for i in range(buttons.size()):
-		if i == curr_selection:
-			buttons[i].position.x = 20
-		else:
-			buttons[i].position.x = 0
+	#var mv = Vector2(20, 0);
+	#for i in range(buttons.size()):
+		#if i == curr_selection:
+			#buttons[i].position = pos[i] + mv;
+		#else:
+			#buttons[i].position = pos[i]
 	
 func _on_play_mouse_entered() -> void:
 	curr_selection = 0

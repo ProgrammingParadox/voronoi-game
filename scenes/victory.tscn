@@ -1,8 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://punv6n538xjd"]
+[gd_scene load_steps=11 format=3 uid="uid://punv6n538xjd"]
 
 [ext_resource type="FontFile" uid="uid://cja1fb78jg8se" path="res://Fonts/futura/Futura Bold font.ttf" id="1_faxov"]
 [ext_resource type="Script" uid="uid://djksc74em35ix" path="res://scenes/victory.gd" id="1_hl81x"]
-[ext_resource type="PackedScene" uid="uid://c14o4bg56yqid" path="res://scenes/home_ui.tscn" id="1_le47n"]
+[ext_resource type="Script" uid="uid://xl0camu6h8q" path="res://scripts/homebuttons.gd" id="2_g6lwx"]
+[ext_resource type="FontFile" uid="uid://rc0iatixy06p" path="res://Fonts/futura/Futura Heavy Italic font.ttf" id="3_5hn41"]
+[ext_resource type="FontFile" uid="uid://206u7jy14i4v" path="res://Fonts/futura/Futura Bold Italic font.ttf" id="4_n2k88"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxycn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqw7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86xni"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qq0qw"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hl81x"]
 
@@ -17,18 +27,43 @@ grow_vertical = 2
 script = ExtResource("1_hl81x")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 1160.0
-offset_bottom = 660.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="HomeUI" parent="." instance=ExtResource("1_le47n")]
+[node name="HomeUI" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_g6lwx")
+
+[node name="Play" type="Button" parent="HomeUI"]
 layout_mode = 2
-offset_left = 420.0
-offset_top = 300.0
-offset_right = 1580.0
-offset_bottom = 486.0
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_n2k88")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lxycn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vqw7c")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_86xni")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qq0qw")
+text = "Play Again"
+alignment = 0
+
+[node name="Homepointer" type="Label" parent="HomeUI"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5hn41")
+theme_override_font_sizes/font_size = 60
+text = ">"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
@@ -49,3 +84,5 @@ theme_override_font_sizes/font_size = 102
 text = "Player 1 wins"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="HomeUI/Play" to="HomeUI" method="_on_play_pressed"]

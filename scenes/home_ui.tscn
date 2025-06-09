@@ -12,20 +12,37 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qq0qw"]
 
-[node name="HomeUI" type="MarginContainer"]
-offset_left = 416.0
-offset_top = 190.0
-offset_right = 738.0
-offset_bottom = 417.0
-theme_override_constants/margin_left = 100
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HomeUI" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_plyxl")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Homepointer" type="Label" parent="HomeUI"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dhu8p")
+theme_override_font_sizes/font_size = 60
+text = ">"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HomeUI"]
 layout_mode = 2
 theme_override_constants/separation = 40
+alignment = 1
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="HomeUI/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_j02rv")
@@ -34,14 +51,5 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_lxycn")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vqw7c")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_86xni")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qq0qw")
-text = "Play"
+text = "Play Again"
 alignment = 0
-
-[node name="Homepointer" type="Label" parent="."]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_dhu8p")
-theme_override_font_sizes/font_size = 60
-text = ">"
-
-[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

@@ -57,7 +57,13 @@ shader_parameter/filled_color = Vector4(1, 1, 1, 1)
 shader_parameter/unfilled_color = Vector4(0, 0, 0, 1)
 shader_parameter/bottom_border_size = 0.001
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("HUD_box")]
+[node name="Node2D" type="Control" node_paths=PackedStringArray("HUD_box")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_s0nni")
 multithread_bar = false
 HUD_box = NodePath("StaticBody2D")
@@ -153,5 +159,6 @@ position = Vector2(-1, -2)
 polygon = PackedVector2Array(-509, 108, -140, 107, -111, 81, -96, 81, -62, 143, 201, 143, 236, 80, 251, 81, 279, 107, 647, 107, 647, 35, -509, 38)
 
 [node name="Victory" parent="." instance=ExtResource("14_7ua8r")]
+layout_mode = 1
 
 [connection signal="timeout" from="MatchTimer/Timer" to="MatchTimer" method="_on_timer_timeout"]
