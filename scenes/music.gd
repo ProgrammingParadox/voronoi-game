@@ -36,8 +36,6 @@ func set_cur(a: audio):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var ca = audio_players[cur]; # current audio
-	if !ca.playing:
-		ca.play(0.0);
 	
 	# there's probably a better way to do this...
 	if !ca.playing and cur == audio.START:
