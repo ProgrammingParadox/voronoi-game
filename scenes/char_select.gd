@@ -54,7 +54,7 @@ func _ready() -> void:
 	
 	get_node("Voronoi").parent = self;
 	
-	var cs = Global.COLOR_PALETTE.slice(1);
+	var cs = Global.COLOR_PALETTE;
 	var seeds = 40;
 	for i in range(seeds):
 		var new_seed = seed_tscn.instantiate()
