@@ -2,7 +2,6 @@ extends MarginContainer
 
 @onready var pointer =  $Homepointer
 @onready var play =     $VBoxContainer/Play
-@onready var settings = $VBoxContainer/Settings
 @onready var buttons =  $VBoxContainer.get_children()
 var timer = 0.0
 var curr_selection := 0
@@ -28,9 +27,6 @@ func _process(delta: float) -> void:
 	
 func _on_play_mouse_entered() -> void:
 	curr_selection = 0
-
-func _on_settings_mouse_entered() -> void:
-	curr_selection = 1
 
 func _on_play_pressed() -> void:
 	Global.game_time = original_game_time

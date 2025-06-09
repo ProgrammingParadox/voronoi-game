@@ -37,18 +37,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_qq0qw")
 text = "Play"
 alignment = 0
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_j02rv")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/focus = SubResource("StyleBoxEmpty_lxycn")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_vqw7c")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_86xni")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_qq0qw")
-text = "Settings"
-alignment = 0
-
 [node name="Homepointer" type="Label" parent="."]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_dhu8p")
@@ -57,4 +45,3 @@ text = ">"
 
 [connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Settings" to="." method="_on_settings_mouse_entered"]
