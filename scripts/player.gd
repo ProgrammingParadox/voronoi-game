@@ -160,7 +160,18 @@ func shoot():
 	
 	new_laser.color = color.darkened(0.4);
 	
+	laser_particles_start();
+	
+func laser_particles_start():
+	var p = get_node("LaserParticles");
+	p.emitting = true;
+	
+func laser_particles_end():
+	var p = get_node("LaserParticles");
+	p.emitting = false;
+	
 func _physics_process(delta: float) -> void:
+	get_node("LaserParticles").color = color.darkened(0.4);
 	get_node("AnimatedSprite2D").material.set_shader_parameter("color", [color.r * 0.6, color.g * 0.6, color.b * 0.6, color.a]);
 	
 	if Input.is_action_pressed(controls_right):

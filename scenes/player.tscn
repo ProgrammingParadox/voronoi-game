@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhp5xw5nom5h"]
+[gd_scene load_steps=13 format=3 uid="uid://bhp5xw5nom5h"]
 
 [ext_resource type="Shader" uid="uid://3p6fu0ir4lwl" path="res://player.gdshader" id="1_i3pqv"]
 [ext_resource type="Script" uid="uid://btcn8r5ytt6yn" path="res://scripts/player.gd" id="1_onrkg"]
@@ -34,6 +34,10 @@ point_count = 3
 _limits = [0.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.13594, 0), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Curve" id="Curve_smehm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.758845, 0.995937), -1.02678, -1.02678, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
@@ -79,3 +83,23 @@ scale_amount_min = 0.0
 scale_amount_max = 13.73
 scale_amount_curve = SubResource("Curve_tuyoq")
 anim_speed_curve = SubResource("Curve_fjrip")
+
+[node name="LaserParticles" type="CPUParticles2D" parent="."]
+z_index = -1
+emitting = false
+amount = 24
+lifetime = 0.2
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.45
+initial_velocity_max = 239.09
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+orbit_velocity_min = -0.5
+orbit_velocity_max = 0.5
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+scale_amount_min = 7.27
+scale_amount_max = 21.82
+scale_amount_curve = SubResource("Curve_smehm")

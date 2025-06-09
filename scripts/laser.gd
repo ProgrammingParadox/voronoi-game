@@ -104,6 +104,7 @@ func _process(delta: float) -> void:
 		
 	if state == 2 && laser_progress >= 0.25:
 			queue_free();
+			shooter_ref.laser_particles_end();
 		
 	material.set_shader_parameter("laser_color", [color.r, color.g, color.b, color.a]);
 	material.set_shader_parameter("laser_state", state);
