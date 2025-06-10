@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://punv6n538xjd"]
+[gd_scene load_steps=10 format=3 uid="uid://punv6n538xjd"]
 
 [ext_resource type="FontFile" uid="uid://cja1fb78jg8se" path="res://Fonts/futura/Futura Bold font.ttf" id="1_faxov"]
 [ext_resource type="Script" uid="uid://djksc74em35ix" path="res://scenes/victory.gd" id="1_hl81x"]
 [ext_resource type="Script" uid="uid://xl0camu6h8q" path="res://scripts/homebuttons.gd" id="2_g6lwx"]
-[ext_resource type="FontFile" path="res://Fonts/futura/Futura Heavy Italic font.ttf" id="3_5hn41"]
-[ext_resource type="FontFile" uid="uid://206u7jy14i4v" path="res://Fonts/futura/Futura Bold Italic font.ttf" id="4_n2k88"]
+[ext_resource type="FontFile" uid="uid://206u7jy14i4v" path="res://Fonts/futura/Futura Bold Italic font.ttf" id="3_5hn41"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxycn"]
 
@@ -49,7 +48,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_n2k88")
+theme_override_fonts/font = ExtResource("3_5hn41")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lxycn")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vqw7c")

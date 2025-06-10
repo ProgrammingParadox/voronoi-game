@@ -41,8 +41,14 @@ func _process(delta: float) -> void:
 	if !ca.playing and cur == audio.START:
 		set_cur(audio.LOOP);
 		
+	if cur == audio.LOOP and !ca.playing:
+		set_cur(audio.LOOP);
+		
 	if Global.curr_game_time < audio_end_length and cur == audio.LOOP:
 		set_cur(audio.END);
 		
 	if Global.curr_game_time < 0 and cur == audio.END:
+		set_cur(audio.MENU);
+		
+	if !ca.playing and cur == audio.MENU:
 		set_cur(audio.MENU);

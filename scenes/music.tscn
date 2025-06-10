@@ -14,21 +14,26 @@ script = ExtResource("1_mobtd")
 [node name="loop" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("2_keplp")
+playback_type = 1
 parameters/looping = true
 
 [node name="start" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("3_d6bcn")
+playback_type = 1
 
 [node name="end" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("4_okdju")
+playback_type = 1
 
 [node name="over" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("5_qntvw")
+playback_type = 1
 parameters/looping = true
 
 [node name="menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_3dw7u")
+playback_type = 1
 parameters/looping = true
